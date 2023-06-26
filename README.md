@@ -2,35 +2,103 @@ VOOCH Project
 
 
 Visualize Out Of Home Creative (VOOHC)
-Visualize Out Of Home Creative (VOOHC) is a mobile/web application designed to assist clients in visualizing their approved out-of-home (OOH) artworks in real-world settings. The primary purpose of VOOHC is to provide a platform where clients can upload their OOH artwork and preview how it will appear in various locations. The application also offers the ability to test the artwork(s) with the target market and receive instant feedback before proceeding with the printing process.
+
+Visualize Out Of Home Creative (VOOHC) is a mobile/web application designed to assist clients in visualizing their
+approved out-of-home (OOH) artworks in real-world settings.
+The primary purpose of VOOHC is to provide a platform where clients can upload their OOH artwork and preview 
+how it will appear in various locations.
+The application also offers the ability to test the artwork(s) with the target market and receive instant feedback
+before proceeding with the printing process.
+
 Here's an overview of how VOOHC works:
-Upload Artworks: Clients can easily upload their approved OOH artworks to the VOOHC platform. The supported file formats may include common image formats such as JPEG, PNG, or even design files like Adobe Photoshop (PSD) or Illustrator (AI).
-Select Locations: Once the artwork is uploaded, clients can choose from a database of predefined OOH locations or provide specific GPS coordinates for custom locations. These locations represent real-world settings where the OOH ads will be displayed, such as billboards, bus shelters, or digital signage.
-Visualize Artworks: VOOHC uses advanced image manipulation techniques to superimpose the uploaded artwork onto the selected OOH locations. The client can then preview how the artwork will appear in different contexts, helping them make informed decisions about design, placement, and overall impact.
-Target Market Testing: In addition to visualizing the artwork in different settings, VOOHC provides a feature for testing the artworks with the target market. The client can define specific demographics or audience characteristics to simulate the real-world impact of the artwork. The application generates a simulated response or feedback based on the selected target market, helping the client gauge the effectiveness of their OOH campaign.
-Instant Feedback: VOOHC offers immediate feedback on the artwork, taking into account the target market's response. Clients can receive data and analytics about the simulated impact, including impressions, engagement rates, or even sentiment analysis. This feedback can guide further adjustments or optimizations to maximize the effectiveness of the OOH campaign.
-Printing and Implementation: Once the client is satisfied with the visualized artwork and feedback, they can proceed with the printing and implementation of the OOH campaign. VOOHC can assist in providing print-ready files or connect clients with printing partners for a seamless transition from the digital preview to real-world advertising.
-By utilizing VOOHC, clients can save time and resources by visualizing their OOH artworks before printing, testing them with their target market, and making data-driven decisions for their advertising campaigns. The application empowers clients to optimize their OOH creatives for maximum impact and enhances the overall effectiveness of their marketing efforts.
+
+Upload Artworks: Clients can easily upload their approved OOH artworks to the VOOHC platform.
+The supported file formats may include common image formats such as JPEG, PNG, or even design files like 
+Adobe Photoshop (PSD) or Illustrator (AI).
 
 
-Team Members
+Select Locations: Once the artwork is uploaded, clients can choose from a database of predefined OOH locations or 
+provide specific GPS coordinates for custom locations. These locations represent real-world settings where the OOH 
+ads will be displayed, such as billboards, bus shelters, or digital signage.
+
+
+Visualize Artworks: VOOHC uses advanced image manipulation techniques to superimpose the uploaded artwork onto the
+selected OOH locations. The client can then preview how the artwork will appear in different contexts, helping them
+make informed decisions about design, placement, and overall impact.
+
+
+Target Market Testing: In addition to visualizing the artwork in different settings, VOOHC provides a feature for 
+testing the artworks with the target market. The client can define specific demographics or audience characteristics 
+to simulate the real-world impact of the artwork. The application generates a simulated response or feedback based on
+the selected target market, helping the client gauge the effectiveness of their OOH campaign.
+
+
+Instant Feedback: VOOHC offers immediate feedback on the artwork, taking into account the target market's response.
+Clients can receive data and analytics about the simulated impact, including impressions, engagement rates, or even 
+sentiment analysis. This feedback can guide further adjustments or optimizations to maximize the effectiveness of the OOH campaign.
+
+Printing and Implementation: Once the client is satisfied with the visualized artwork and feedback, they can proceed
+with the printing and implementation of the OOH campaign. VOOHC can assist in providing print-ready files or connect 
+clients with printing partners for a seamless transition from the digital preview to real-world advertising.
+
+By utilizing VOOHC, clients can save time and resources by visualizing their OOH artworks before printing, testing them
+with their target market, and making data-driven decisions for their advertising campaigns. The application empowers clients 
+to optimize their OOH creatives for maximum impact and enhances the overall effectiveness of their marketing efforts.
+
+
+Team Members/ Authors
 
 CLEVERS RUNGENE
+
 LAWRENCE SAGINI
 
-Roles
+Roles played:
 
-Clevers - Project Manager: Clevers will be responsible for overseeing the entire VOOHC project. He will coordinate with Lawrence, manage timelines, ensure smooth communication, and make critical decisions. Clevers's experience in project management and his ability to handle multiple stakeholders make him well-suited for this role.
-Lawrence - UX/UI Designer: Lawrence will be in charge of the user experience (UX) and user interface (UI) design aspects of VOOHC. He will create intuitive and visually appealing interfaces, ensuring a seamless user experience. Lawrence's strong design skills, creativity, and understanding of user-centric design principles make him a valuable asset for this role.
-Lawrence - Front-End Developer: Lawrence will handle the front-end development of the VOOHC application. He will be responsible for translating the UX/UI designs into functional and responsive web and mobile interfaces. Lawrence's expertise in front-end technologies, such as HTML, CSS, and JavaScript, coupled with his attention to detail, makes him the ideal candidate for this role.
-Clevers - Back-End Developer: Clevers will be responsible for the back-end development of the VOOHC application. He will build the server-side logic, database integration, and API development to ensure the application functions smoothly. Clevers's strong programming skills, knowledge of server-side languages (such as Python, Ruby, or Node.js), and experience in database management make him well-suited for this role.
-Lawrence/Clevers - QA Tester: Both will play a crucial role in quality assurance (QA) testing for VOOHC. They will thoroughly test the application, identify bugs or issues, and ensure its overall performance and reliability. Their meticulous attention to detail, analytical mindset, and experience in software testing methodologies qualify her for this role.
-Lawrence/Clevers - Marketing Specialist: They will both handle the marketing and promotion aspects of VOOHC. They  will develop strategies to reach the target audience, create marketing campaigns, and establish partnerships with relevant stakeholders. Their strong marketing background, understanding of advertising trends, and ability to analyze market data will make them valuable team members.
+Clevers - Project Manager: 
+
+Clevers will be responsible for overseeing the entire VOOHC project. He will coordinate with Lawrence, manage timelines,
+ensure smooth communication, and make critical decisions. Clevers's experience in project management and his ability to 
+handle multiple stakeholders make him well-suited for this role.
+
+Lawrence - UX/UI Designer:
+
+Lawrence will be in charge of the user experience (UX) and user interface (UI) design aspects of VOOHC.
+He will create intuitive and visually appealing interfaces, ensuring a seamless user experience.
+Lawrence's strong design skills, creativity, and understanding of user-centric design principles make him a valuable asset for this role.
+
+Lawrence - Front-End Developer:
+
+Lawrence will handle the front-end development of the VOOHC application.
+He will be responsible for translating the UX/UI designs into functional and responsive web and mobile interfaces.
+Lawrence's expertise in front-end technologies, such as HTML, CSS, and JavaScript, coupled with his attention to detail,
+makes him the ideal candidate for this role.
+
+Clevers - Back-End Developer:
+
+Clevers will be responsible for the back-end development of the VOOHC application.
+He will build the server-side logic, database integration, and API development to ensure the application functions smoothly. 
+Clevers's strong programming skills, knowledge of server-side languages (such as Python, Ruby, or Node.js), 
+and experience in database management make him well-suited for this role.
+
+Lawrence/Clevers - QA Tester:
+
+Both will play a crucial role in quality assurance (QA) testing for VOOHC. 
+They will thoroughly test the application, identify bugs or issues, and ensure its overall performance and reliability.
+Their meticulous attention to detail, analytical mindset, and experience in software testing methodologies qualify her for this role.
+
+Lawrence/Clevers - Marketing Specialist:
+
+They will both handle the marketing and promotion aspects of VOOHC. 
+They  will develop strategies to reach the target audience, create marketing campaigns, and establish partnerships with relevant stakeholders.
+Their strong marketing background, understanding of advertising trends, and ability to analyze market data will make them valuable team members.
+
 The selection of these roles has been based on the expertise, skills, and experience each team member brings to the project. The project manager ensures effective coordination and project delivery. The UX/UI designer focuses on creating an intuitive and visually appealing user experience. The front-end and back-end developers handle the technical implementation of the application. The QA tester ensures the application's quality and reliability. Finally, the marketing specialist drives the promotion and success of the VOOHC app in the market.
 These roles have been determined to ensure that each aspect of the project is handled by a dedicated team member with the required skill set. This division of responsibilities allows for specialization, collaboration, and the efficient completion of tasks. By assigning individuals to roles that align with their expertise, the team can maximize their contributions and deliver a high-quality product that meets the needs and expectations of the clients and user
 
 Technologies
+
 Languages:
+
 HTML5: Used for structuring the web application's content.
 CSS3: Used for styling the web application's elements.
 JavaScript: Used for client-side scripting and interactivity.
