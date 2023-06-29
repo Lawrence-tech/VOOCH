@@ -48,11 +48,11 @@ def upload_file():
                 # store image_path in session
                 session["image_path"] = image_path
                 print("File saved")
-                return redirect(request.url)
+                return render_template('upload2.html')
             else:
                 print("File exetension is not allowed")
                 return redirect(request.url)
-    return render_template('upload2.html')
+    return render_template('upload.html')
 
 
 @app.route("/image_display", strict_slashes=False)
