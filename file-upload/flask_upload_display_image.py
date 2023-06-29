@@ -55,7 +55,7 @@ def upload_file():
     return render_template('upload2.html')
 
 
-@app.route("/display-image", strict_slashes=False)
+@app.route("/image_display", strict_slashes=False)
 def show_image():
     """Displays the uploaded Image"""
     # Retrive image_path from session
