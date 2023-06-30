@@ -67,5 +67,27 @@ def show_image():
         return "Image not found"
 
 
+@app.route("/first_review", strict_slashes=False)
+def first_review():
+    """Displays the image and review form"""
+    # Retrive image_path from session
+    image_path = session.get("image_path")
+    if image_path:
+        return render_template('first_review.html', user_image=image_path)
+    else:
+        return "Image not found"
+
+
+@app.route("/second_review", strict_slashes=False)
+def second_review():
+    """Displays the image and review form"""
+    # Retrive image_path from session
+    image_path = session.get("image_path")
+    if image_path:
+        return render_template('second_review.html', user_image=image_path)
+    else:
+        return "Image not found"
+
+
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=5000, debug=True)
