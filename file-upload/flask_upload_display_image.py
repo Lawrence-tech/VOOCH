@@ -1,6 +1,9 @@
 import os
 from os.path import expanduser
 from flask import Flask, render_template, request, redirect, session
+from flask_sqlalchemy import SQLAlchemy
+from flask_migrate import Migrate
+from config import Config
 from werkzeug.utils import secure_filename
 app = Flask(__name__)
 
