@@ -1,9 +1,13 @@
 import os
+from os.path import expanduser
 from flask import Flask, render_template, request, redirect, session
 from werkzeug.utils import secure_filename
 app = Flask(__name__)
 
-upload_path = os.path.join('static/uploads')
+upload_path = os.path.join(expanduser('~'), 'Desktop', 'Uploads', 'img')
+
+# Create the directories if the don't exist
+os.makedirs(upload_path, exist_ok=True)
 print(upload_path)
 app.config["UPLOADS"] = upload_path
 app.config["ALLOWED_FILE_EXTENSIONS"] = ["JPEG", "JPG", "PNG", "GIF", "jpg"]
