@@ -6,6 +6,8 @@ from flask_migrate import Migrate
 from config import Config
 from werkzeug.utils import secure_filename
 app = Flask(__name__)
+db = SQLAlchemy(app)
+migrate = Migrate(app, db)
 
 upload_path = os.path.join(expanduser('~'), 'Desktop', 'Uploads', 'img')
 
