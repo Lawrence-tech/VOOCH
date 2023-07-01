@@ -12,6 +12,7 @@ app = Flask(__name__)
 app.config.from_object(Config)
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
+import models
 
 upload_path = os.path.join(expanduser('~'), 'Desktop', 'Uploads', 'img')
 
