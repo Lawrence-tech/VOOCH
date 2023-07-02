@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href='/static/main.css' />
+  </head>
+  <body>
+    <h1>VOOCH artwork review platform</h1>
+    <p>Please give your input on this artwork</p>
+ 
+    <img src="{{ user_image }}" alt="artwork image" width="1000" height="500">
+    <p>The advertsiser is clear with his communication.</p>
+    <form>
+      <input type="radio" id="agree" name="agree_artwork" value="Agreed">
+      <label for="agree">Agreed</label><br>
+      <input type="radio" id="disagree" name="disagree_artwork" value="Disagree">
+      <label for="disagree">Disagree</label><br>
+    </form>
+    <form>
+      <label for="cimprove">Can be improved? Let us know:</label><br>
+      <input type="text" id="cimprove" name="cimprove" style="width: 70%;height: 100px;"><br>
+    </form>
+    <form action="/second_review" target="_blank">
+      <input type="submit" value="Next" />
+    </form>
+    </body>
+</html>
