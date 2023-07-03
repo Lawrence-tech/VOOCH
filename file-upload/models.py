@@ -13,6 +13,15 @@ class User(db.Model):
     def __repr__(self):
         return '<User {}>'.format(self.username)
 
+    def to_dict(self):
+        data = {
+            'id': self.id,
+            'username': self.username,
+            'email': self.email,
+            'name': self.name
+        }
+        return data
+
 class Artwork(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(140), index=True)
