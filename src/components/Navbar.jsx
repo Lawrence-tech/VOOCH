@@ -15,8 +15,6 @@ const Navbar = () => {
             <li>Home</li>
             <li>About</li>
             <li>Support</li>
-            <li>Platform</li>
-            <li>Pricing</li>
           </ul>
         </div>
 
@@ -38,8 +36,6 @@ const Navbar = () => {
           <li className="p-4 hover:bg-gray-100">Home</li>
           <li className="p-4 hover:bg-gray-100">About</li>
           <li className="p-4 hover:bg-gray-100">Support</li>
-          <li className="p-4 hover:bg-gray-100">Platform</li>
-          <li className="p-4 hover:bg-gray-100">Pricing</li>
           <div className="flex flex-col my-4 gap-4">
             <button className="border border-green-500 flex justify-center items-center bg-transparent px-6 gap-2 py-4">
               <img src={lock} alt="Lock Icon" />
