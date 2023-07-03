@@ -1,6 +1,6 @@
 import os
 from os.path import expanduser
-from flask import Flask, render_template, request, redirect, session
+from flask import Flask, render_template, request, redirect, session, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from config import Config
@@ -34,6 +34,14 @@ def make_shell_context():
 def default():
     """Default route"""
     return render_template('upload.html')
+
+
+@app.route('/api/users')
+def all_users():
+    """Returns all users in json format"""
+    users = User.query.all()
+    users_data = [user.to_dict() for user in users]
+    return jsonify(users_data)
 
 
 def allowed_file(filename):
