@@ -12,7 +12,7 @@ app = Flask(__name__)
 app.config.from_object(Config)
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
-import models
+from models import User, Artwork
 
 upload_path = os.path.join(expanduser('~'), 'Desktop', 'Uploads', 'img')
 
@@ -23,6 +23,11 @@ app.config["UPLOADS"] = upload_path
 app.config["ALLOWED_FILE_EXTENSIONS"] = ["JPEG", "JPG", "PNG", "GIF", "jpg"]
 # Define a secret key to enable session
 app.secret_key = os.environ.get("APP_SECRET_KEY", "default_secret_key")
+
+
+@app.shell_context_processor
+def make_shell_context():
+    return {'db': db, 'User': User, 'Artwork': Artwork}
 
 
 @app.route("/", strict_slashes=False)
