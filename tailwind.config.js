@@ -11,6 +11,8 @@ module.exports = {
   },
   plugins: [
     require('@tailwindcss/typography'),
+    require('tailwindcss'),
+    require('autoprefixer'),
     require('flowbite/plugin')
     // Other plugins...
   ],
