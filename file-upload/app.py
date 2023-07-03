@@ -12,7 +12,7 @@ app = Flask(__name__)
 app.config.from_object(Config)
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
-from models import User, Artwork
+import models
 
 upload_path = os.path.join(expanduser('~'), 'Desktop', 'Uploads', 'img')
 
@@ -39,7 +39,8 @@ def default():
 @app.route('/api/users')
 def all_users():
     """Returns all users in json format"""
-    users = User.query.all()
+    from models import User
+    users = models.User.query.all()
     users_data = [user.to_dict() for user in users]
     return jsonify(users_data)
 
