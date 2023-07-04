@@ -22,6 +22,11 @@ class User(db.Model):
         }
         return data
 
+    def from_dict(self, data):
+        for field in ['username', 'email', 'name', 'password']:
+            if field in data:
+                setattr(self, field, data[field])
+
 class Artwork(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(140), index=True)
