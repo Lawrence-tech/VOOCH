@@ -46,9 +46,11 @@
   margin-right: 25px;
  }
 
-.slick-dots {
-  @apply ml-[-10px] hidden
- }
+ .slick-dots {
+  margin-left: -10px;
+  display: none;
+}
+
 
 
 
