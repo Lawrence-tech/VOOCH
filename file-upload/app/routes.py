@@ -1,18 +1,11 @@
+from app import app
+from app.models import User
 import os
 from os.path import expanduser
-from flask import Flask, render_template, request, redirect, session, jsonify
-from flask_sqlalchemy import SQLAlchemy
-from flask_migrate import Migrate
-from config import Config
+from flask import jsonify, render_template, request, redirect, session
 from werkzeug.utils import secure_filename
 
 
-app = Flask(__name__)
-
-app.config.from_object(Config)
-db = SQLAlchemy(app)
-migrate = Migrate(app, db)
-import models
 
 upload_path = os.path.join(expanduser('~'), 'Desktop', 'Uploads', 'img')
 
@@ -39,8 +32,7 @@ def default():
 @app.route('/api/users')
 def all_users():
     """Returns all users in json format"""
-    from models import User
-    users = models.User.query.all()
+    users = User.query.all()
     users_data = [user.to_dict() for user in users]
     return jsonify(users_data)
 
