@@ -32,6 +32,13 @@ def all_users():
     return jsonify(users_data)
 
 
+@app.route('/api/users/<int:id>')
+def user(id):
+    """Returns one user when id is passed"""
+    user = User.query.get(id)
+    return jsonify(user.to_dict())
+
+
 def allowed_file(filename):
     """check if the file extension is allowed"""
 
