@@ -18,11 +18,6 @@ app.config["ALLOWED_FILE_EXTENSIONS"] = ["JPEG", "JPG", "PNG", "GIF", "jpg"]
 app.secret_key = os.environ.get("APP_SECRET_KEY", "default_secret_key")
 
 
-@app.shell_context_processor
-def make_shell_context():
-    return {'db': db, 'User': User, 'Artwork': Artwork}
-
-
 @app.route("/", strict_slashes=False)
 def default():
     """Default route"""
