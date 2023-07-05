@@ -127,7 +127,3 @@ def second_review():
         return render_template('second_review.html', user_image=image_path)
     else:
         return "Image not found"
-
-
-if __name__ == '__main__':
-    app.run(host="0.0.0.0", port=5000, debug=True)
