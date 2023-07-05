@@ -1,18 +1,11 @@
+from app import app, db
+from app.models import User
 import os
 from os.path import expanduser
-from flask import Flask, render_template, request, redirect, session
-from flask_sqlalchemy import SQLAlchemy
-from flask_migrate import Migrate
-from config import Config
+from flask import jsonify, render_template, request, redirect, session
 from werkzeug.utils import secure_filename
 
 
-app = Flask(__name__)
-
-app.config.from_object(Config)
-db = SQLAlchemy(app)
-migrate = Migrate(app, db)
-import models
 
 upload_path = os.path.join(expanduser('~'), 'Desktop', 'Uploads', 'img')
 
@@ -30,6 +23,39 @@ def default():
     """Default route"""
     return render_template('upload.html')
 
+
+@app.route('/api/users')
+def all_users():
+    """Returns all users in json format"""
+    users = User.query.all()
+    users_data = [user.to_dict() for user in users]
+    return jsonify(users_data)
+
+
+@app.route('/api/users/<int:id>')
+def user(id):
+    """Returns one user when id is passed"""
+    user = User.query.get(id)
+    return jsonify(user.to_dict())
+
+
+@app.route('/api/users', methods=['POST'])
+def create_user():
+    """Creates a User"""
+    # Get data from request
+    data = request.get_json()
+    # Store data in db
+    user = User()
+
+    user.from_dict(data)
+
+    db.session.add(user)
+    db.session.commit()
+
+    response = jsonify(user.to_dict())
+    response.status_code = 201
+
+    return response
 
 def allowed_file(filename):
     """check if the file extension is allowed"""
@@ -101,7 +127,3 @@ def second_review():
         return render_template('second_review.html', user_image=image_path)
     else:
         return "Image not found"
-
-
-if __name__ == '__main__':
-    app.run(host="0.0.0.0", port=5000, debug=True)
