@@ -1,4 +1,4 @@
-from app import app
+from app import app, db
 from app.models import User
 import os
 from os.path import expanduser
@@ -38,6 +38,24 @@ def user(id):
     user = User.query.get(id)
     return jsonify(user.to_dict())
 
+
+@app.route('/api/users', methods=['POST'])
+def create_user():
+    """Creates a User"""
+    # Get data from request
+    data = request.get_json()
+    # Store data in db
+    user = User()
+
+    user.from_dict(data)
+
+    db.session.add(user)
+    db.session.commit()
+
+    response = jsonify(user.to_dict())
+    response.status_code = 201
+
+    return response
 
 def allowed_file(filename):
     """check if the file extension is allowed"""
