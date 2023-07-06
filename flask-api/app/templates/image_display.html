@@ -1,0 +1,10 @@
+{% extends "base.html" %}    
+
+{% block content %}
+    <p>Your opinion counts. Rate this artwork</p>
+ 
+    <img src="{{ user_image }}" alt="artwork image" width="500" height="400">
+    <form action="/first_review" target="_blank">
+      <input type="submit" value="Tell us what you think" />
+    </form>
+{% endblock %}
