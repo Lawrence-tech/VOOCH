@@ -1,10 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <link rel="stylesheet" href='/static/main.css' />
-  </head>
-  <body>
-    <h1>VOOCH artwork review platform</h1>
+{% extends "base.html"  %}
+
+{% block content %}
     <p>Please give your input on this artwork</p>
  
     <img src="{{ user_image }}" alt="artwork image" width="1000" height="500">
@@ -22,5 +18,4 @@
     <form action="/second_review" target="_blank">
       <input type="submit" value="Next" />
     </form>
-    </body>
-</html>
+{% endblock %}

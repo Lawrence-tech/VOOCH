@@ -1,12 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <link rel="stylesheet" href='/static/main.css' />
-  </head>
-  <body>
-    <h1>Upload and display image in Flask</h1>
-    <p>Show image in html using FLASK</p>
- 
+{% extends "base.html" %}
+
+{% block content %}
     <form method="POST" enctype="multipart/form-data" action="/">
         <input type="file" id="myFile" name="uploaded-file" accept=".jpg">
         <input type="submit" value="Submit">
@@ -16,5 +10,4 @@
   <form action="/image_display" target="_blank">
         <input type="submit" value="Show Image" />
     </form>
-  </body>
-</html>
+{% endblock %}
