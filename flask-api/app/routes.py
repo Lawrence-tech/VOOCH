@@ -17,8 +17,9 @@ app.config["ALLOWED_FILE_EXTENSIONS"] = ["JPEG", "JPG", "PNG", "GIF", "jpg"]
 
 
 @app.route("/", strict_slashes=False)
-def default():
-    """Default route"""
+@app.route('/index' strict_slashes=False)
+def index():
+    """Index route"""
     return render_template('upload.html')
 
 
