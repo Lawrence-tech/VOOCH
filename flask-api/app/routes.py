@@ -4,10 +4,10 @@ import os
 from os.path import expanduser
 from flask import jsonify, render_template, request, redirect, session
 from werkzeug.utils import secure_filename
+from app.forms import LoginForm
 
 
-
-#upload_path = os.path.join(expanduser('~'), 'Desktop', 'Uploads', 'img')
+# upload_path = os.path.join(expanduser('~'), 'Desktop', 'Uploads', 'img')
 
 # Construct the upload path relative to the app folder
 upload_path = os.path.join('static', 'uploads')
@@ -61,6 +61,7 @@ def create_user():
     response.status_code = 201
 
     return response
+
 
 def allowed_file(filename):
     """check if the file extension is allowed"""
@@ -132,3 +133,9 @@ def second_review():
         return render_template('second_review.html', user_image=image_path)
     else:
         return "Image not found"
+
+
+@app.route('/login', strict_slashes=False)
+def login():
+    form = LoginForm()
+    return render_template('login.html', title='Sign In', form=form)
