@@ -2,7 +2,11 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" href='/static/main.css' />
+    {% if title %}
+    <title>{{ title }} - VOOCH</title>
+    {% else %}
     <title>Welcome to VOOCH</title>
+    {% endif %}
   </head>
   <body>
     <h1>VOOCH helps you get artwork feedback in jiffy</h1>
