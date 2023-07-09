@@ -19,7 +19,7 @@ print(upload_path)
 app.config["UPLOADS"] = upload_path
 app.config["ALLOWED_FILE_EXTENSIONS"] = ["JPEG", "JPG", "PNG", "GIF", "jpg"]
 # Define a secret key to enable session
-app.secret_key = os.environ.get("APP_SECRET_KEY", "default_secret_key")
+# app.secret_key = os.environ.get("APP_SECRET_KEY", "default_secret_key")
 
 
 @app.route("/", strict_slashes=False)
