@@ -2,7 +2,7 @@ from app import app, db
 from app.models import User
 import os
 from os.path import expanduser
-from flask import jsonify, render_template, request, redirect, session
+from flask import jsonify, render_template, request, redirect, session, flash
 from werkzeug.utils import secure_filename
 from app.forms import LoginForm
 
@@ -135,7 +135,12 @@ def second_review():
         return "Image not found"
 
 
-@app.route('/login', strict_slashes=False)
+@app.route('/login', methods=['GET', 'POST'], strict_slashes=False)
 def login():
     form = LoginForm()
+    if form.validate_on_submit():
+        flash('Login requested for user {},
+              remember_me={}'.format(form.username.data,
+                                     form.remember_me.data))
+        return redirect('/index')
     return render_template('login.html', title='Sign In', form=form)
