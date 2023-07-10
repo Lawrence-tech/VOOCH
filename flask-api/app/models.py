@@ -1,5 +1,6 @@
 from datetime import datetime
 from app import db
+from app import login
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 
@@ -48,3 +49,8 @@ class Artwork(db.Model):
 
     def __repr__(self):
         return f'<Artwork {self.title}>'
+
+@login.user_loader
+def load_user(id):
+    """Load a user given the ID"""
+    return User.query.get(int(id))
