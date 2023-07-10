@@ -1,11 +1,12 @@
 from app import app, db
-from flask_login import current_user, login_user, logout_user
+from flask_login import current_user, login_user, logout_user, login_required
 from app.models import User
 import os
 from os.path import expanduser
 from flask import jsonify, render_template, request, redirect, session, flash
 from werkzeug.utils import secure_filename
 from app.forms import LoginForm
+from werkzeug.urls import url_parse
 
 
 # upload_path = os.path.join(expanduser('~'), 'Desktop', 'Uploads', 'img')
@@ -25,6 +26,7 @@ app.config["ALLOWED_FILE_EXTENSIONS"] = ["JPEG", "JPG", "PNG", "GIF", "jpg"]
 
 @app.route("/", strict_slashes=False)
 @app.route('/index', strict_slashes=False)
+@login_required
 def index():
     """Index route"""
     return render_template('upload.html')
@@ -148,7 +150,10 @@ def login():
             flash('Invalid username or password')
             return redirect(url_for('login'))
         login_user(user, remember=form.remember_me.data)
-        return redirect(url_for('index'))
+        next_page = request.args.get('next')
+        if not next_page or url_parse(next_page).netloc != '':
+            next_page = url_for('index')
+        return redirect(next_page)
     return render_template('login.html', title='Sign In', form=form)
 
 
