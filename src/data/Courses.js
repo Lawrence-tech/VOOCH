@@ -1,25 +1,25 @@
 export const courses = [
   
   {
-    id: 2,
-    title: 'The Complete 2023 Web Development Bootcamp',
-    category:'Web Dev',
+    id: 1,
+    title: 'The sun glass advert',
+    category:'Street Ad',
     rating:4,
-    price: '$59.99',
+    price: '$10.30',
     linkImg:
-      'https://imgs.search.brave.com/ZkwGbElTOq8Zo7NeRU669-o016O6XSLJftZZ5I--HJg/rs:fit:750:422:1/g:ce/aHR0cHM6Ly9kaXNj/b3VudHNlcmllcy5j/b20vd3AtY29udGVu/dC91cGxvYWRzLzIw/MjAvMTEvMTAwLWRh/eXMtb2YtY29kZS10/aGUtY29tcGxldGUt/cHl0aG9uLXByby1i/b290Y2FtcC1mb3It/MjAyMi1jb3Vyc2Uu/anBn',
+      'src/assets/heroImg.png',
   },
   {
-    id: 3,
-    title: 'Learn Python: The Complete Python Programming CourseLearn A-Z everything about Python, from the basics, to advanced topics like Python GUI, Python Data Analysis, and more!',
-    category:'Python',
+    id: 2,
+    title: 'At night everything seems clear',
+    category:'Star Moon',
     rating:4,
-    price: '$59.99',
+    price: '$37.56',
     linkImg:
       'https://imgs.search.brave.com/Nhj_cLAZOWcUjlnR8QMX8A02rX-2RYra9w-0j-B9Rbg/rs:fit:750:422:1/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzL2IxLzJi/L2NjL2IxMmJjYzA4/YmQ4YzlhOTFjMmM5/NjY3ZTM5NzE1NzA0/LmpwZw',
   },
   {
-    id: 4,
+    id: 3,
     title: 'The Complete JavaScript Course 2023: From Zero to Expert!',
     category:'Javascript',
     rating:4,
