@@ -11,7 +11,7 @@ const Footer = () => {
                 <img src={vlogo} className="h-[80px] w-[100px]"/>
                 <h3 className='text-2xl font-bold mt-10'>Contact Us</h3>
                 <h3 className='py-2 text-[#6D737A]'>Call : 079999666</h3>
-                <h3 className='py-2 text-[#6D737A]'>Praesent nulla massa, hendrerit <br></br> vestibulum gravida in, feugiat auctor felis.</h3>
+                <h3 className='py-2 text-[#6D737A]'>We have all the Arts, the best of arts. <br></br> Guaranteed value of your work or get your money back.</h3>
                 <h3 className='py-2 text-[#363A3D]'>Email: vooch@mail.com</h3>
                 <div className='flex gap-4 py-4'>
                         <div className='p-4 bg-[#D9D9D9] rounded-xl'><FaFacebookF size={25} style={{color:'#367DE8'}} /></div>
@@ -52,7 +52,7 @@ const Footer = () => {
 
             <div className='max-[780px]:col-span-2'>
                 <h3 className='text-2xl font-bold'>Subscribe</h3>
-                <h3 className='py-2 text-[#6D737A]'>Praesent nulla massa, hendrerit <br></br> vestibulum gravida in, feugiat auctor felis.</h3>
+                <h3 className='py-2 text-[#6D737A]'>To get our current trends and updates <br></br> Enter your email to get a montly Newsletter</h3>
                 <form className='py-4'>
                     <input 
                         className='bg-[#F2F3F4] p-4 w-full rounded' 
