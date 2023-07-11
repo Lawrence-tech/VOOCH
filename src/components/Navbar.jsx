@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {logo,lock, hamburgerMenu, close} from '../assets'
+import {vlogo,lock, hamburgerMenu, close} from '../assets'
 
 const Navbar = () => {
 
@@ -7,10 +7,10 @@ const Navbar = () => {
     const handleClick = ()=> setToggle(!toggle)
 
   return (
-    <div className='w-full h-[80px] bg-white border-b'>
+    <div className='w-full h-[80px] bg-gray-300 border-b'>
         <div className='md:max-w-[1480px] max-w-[600px] m-auto w-full h-full flex justify-between items-center md:px-0 px-4'>
             
-            <img src={logo} className="h-[25px]" />
+            <img src={vlogo} className="h-[80px] w-[100px]"/>
             
             <div className='hidden md:flex items-center '>
                 <ul className='flex gap-4'>
@@ -28,7 +28,7 @@ const Navbar = () => {
                     <img src={lock} />
                     Login
                 </button>
-                <button className='px-8 py-3 rounded-md bg-[#20B486] text-white font-bold'>Sign Up For Free</button>
+                <button className='px-8 py-3 rounded-md bg-[#367DE8] text-white font-bold'>Sign Up For Free</button>
             </div>
 
             <div className='md:hidden'  onClick={handleClick}>
@@ -52,7 +52,7 @@ const Navbar = () => {
                          <img src={lock} />
                          Login
                         </button>
-                        <button className='px-8 py-5 rounded-md bg-[#20B486] text-white font-bold'>Sign Up For Free</button>
+                        <button className='px-8 py-5 rounded-md bg-[#367DE8] text-white font-bold'>Sign Up For Free</button>
                     </div>
             </ul>
         </div>

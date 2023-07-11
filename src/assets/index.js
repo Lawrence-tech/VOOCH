@@ -12,6 +12,8 @@ import achievement from "./achievement.png";
 import avatar from "./avatar.png";
 import quotationMark from "./quotationMark.png";
 import cta from "./cta.png"
+import voochm from "./voochm.png"
+import vlogo from "./vlogo.jpeg"
 
 export {
   hamburgerMenu,
@@ -27,7 +29,9 @@ export {
   achievement,
   avatar,
   quotationMark,
-  cta
+  cta,
+  voochm,
+  vlogo
 
 
 };

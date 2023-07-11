@@ -1,5 +1,5 @@
 import React from 'react'
-import { logo } from '../assets'
+import { logo, vlogo } from '../assets'
 import {FaFacebookF,FaDribbble,FaLinkedinIn,FaInstagram,FaBehance} from 'react-icons/fa'
 
 const Footer = () => {
@@ -8,17 +8,17 @@ const Footer = () => {
         <div className='md:max-w-[1480px] m-auto grid md:grid-cols-5 max-[780px]:grid-cols-2  gap-8 max-w-[600px]  px-4 md:px-0'>
             
             <div className='col-span-2'>
-                <img src={logo} className="h-[25px]" />
+                <img src={vlogo} className="h-[80px] w-[100px]"/>
                 <h3 className='text-2xl font-bold mt-10'>Contact Us</h3>
-                <h3 className='py-2 text-[#6D737A]'>Call : +123 400 123</h3>
+                <h3 className='py-2 text-[#6D737A]'>Call : 079999666</h3>
                 <h3 className='py-2 text-[#6D737A]'>Praesent nulla massa, hendrerit <br></br> vestibulum gravida in, feugiat auctor felis.</h3>
-                <h3 className='py-2 text-[#363A3D]'>Email: example@mail.com</h3>
+                <h3 className='py-2 text-[#363A3D]'>Email: vooch@mail.com</h3>
                 <div className='flex gap-4 py-4'>
-                        <div className='p-4 bg-[#E9F8F3] rounded-xl'><FaFacebookF size={25} style={{color:'#4DC39E'}} /></div>
-                        <div className='p-4 bg-[#E9F8F3] rounded-xl'><FaDribbble size={25} style={{color:'#4DC39E'}} /></div>
-                        <div className='p-4 bg-[#E9F8F3] rounded-xl'><FaLinkedinIn size={25} style={{color:'#4DC39E'}} /></div>
-                        <div className='p-4 bg-[#E9F8F3] rounded-xl'><FaInstagram size={25} style={{color:'#4DC39E'}} /></div>
-                        <div className='p-4 bg-[#E9F8F3] rounded-xl'><FaBehance size={25} style={{color:'#4DC39E'}} /></div>
+                        <div className='p-4 bg-[#D9D9D9] rounded-xl'><FaFacebookF size={25} style={{color:'#367DE8'}} /></div>
+                        <div className='p-4 bg-[#D9D9D9] rounded-xl'><FaDribbble size={25} style={{color:'#367DE8'}} /></div>
+                        <div className='p-4 bg-[#D9D9D9] rounded-xl'><FaLinkedinIn size={25} style={{color:'#367DE8'}} /></div>
+                        <div className='p-4 bg-[#D9D9D9] rounded-xl'><FaInstagram size={25} style={{color:'#367DE8'}} /></div>
+                        <div className='p-4 bg-[#D9D9D9] rounded-xl'><FaBehance size={25} style={{color:'#367DE8'}} /></div>
 
                 </div>
 
@@ -58,7 +58,7 @@ const Footer = () => {
                         className='bg-[#F2F3F4] p-4 w-full rounded' 
                         placeholder='Email here' 
                     />
-                    <button className='max-[780px]:w-full my-4 px-5 py-3 rounded-md bg-[#20B486] text-white font-medium'>Subscribe Now</button>
+                    <button className='max-[780px]:w-full my-4 px-5 py-3 rounded-md bg-[#367DE8] text-white font-medium'>Subscribe Now</button>
 
                 </form>
 

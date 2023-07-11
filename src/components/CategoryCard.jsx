@@ -9,10 +9,10 @@ const CategoryCard = ({icons,title}) => {
             <h1 className='md:max-w-[200px] max-w-[70px] truncate md:text-2xl text-lg font-semibold absolute ml-10' >{title}</h1>
         </div>
         
-        <div className='group-hover/edit:bg-[#20B486] rounded-lg p-3'>
+        <div className='group-hover/edit:bg-[#367DE8] rounded-lg p-3'>
             <BsArrowUpRight 
                 size={30}
-                style={{color:'#20B486'}}
+                style={{color:'#367DE8'}}
                 className='arrow-icon'
             
             />

@@ -17,7 +17,7 @@ const FeedbackCard = () => {
       </div>
 
       <div className='py-8'>
-        <h3 className='text-lg'>Ut pharetra ipsum nec leo blandit, sit amet tincidunt eros pharetra. Nam sed imperdiet turpis. In hac habitasse platea dictumst. Praesent nulla massa, hendrerit vestibulum gravida in, feugiat auctor felis.Ut pharetra ipsum nec leo blandit, sit amet tincidunt eros pharetra. Nam sed imperdiet turpis. In hac habitasse platea dictumst.</h3>
+        <h3 className='text-lg'>I no longer have to disturb other artists for opinion. I've found the great stories on VOOCH. Creative.</h3>
       </div>
     </div>
   )
