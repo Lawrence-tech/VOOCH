@@ -14,6 +14,11 @@ import quotationMark from "./quotationMark.png";
 import cta from "./cta.png"
 import voochm from "./voochm.png"
 import vlogo from "./vlogo.jpeg"
+import manstar from "./manstar.jpg"
+import manwall from "./manwall.jpg"
+import pwall from "./pwall.jpg"
+import vstand from "./vstand.jpg"
+import vwall from "./vwall.png"
 
 export {
   hamburgerMenu,
@@ -31,7 +36,12 @@ export {
   quotationMark,
   cta,
   voochm,
-  vlogo
+  vlogo,
+  vwall,
+  vstand,
+  manstar,
+  manwall,
+  pwall
 
 
 };
