@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href='/static/main.css' />
+    {% if title %}
+    <title>{{ title }} - VOOCH</title>
+    {% else %}
+    <title>Welcome to VOOCH</title>
+    {% endif %}
+  </head>
+  <body>
+    <h1>VOOCH helps you get artwork feedback in jiffy</h1>
+    <p>Display the uploaded artworks</p>
+    <div>
+      VOOCH:
+      <a href="{{ url_for('index') }}">Home</a>
+      {% if current_user.is_anonymous %}
+      <a href="{{ url_for('login') }}">Login</a>
+      {% else %}
+      <a href="{{ url_for('logout') }}">Logout</a>
+      {% endif %}
+    </div>
+    <hr>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul>
+      {% for message in messages %}
+      <li>{{ message }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+    {% block content %}{% endblock %}
+  </body>
+</html>

@@ -1,26 +1,34 @@
 from app import app, db
+from flask_login import current_user, login_user, logout_user, login_required
 from app.models import User
 import os
 from os.path import expanduser
-from flask import jsonify, render_template, request, redirect, session
+from flask import jsonify, render_template, request, redirect, session, flash
 from werkzeug.utils import secure_filename
+from app.forms import LoginForm
+from werkzeug.urls import url_parse
 
 
+# upload_path = os.path.join(expanduser('~'), 'Desktop', 'Uploads', 'img')
 
-upload_path = os.path.join(expanduser('~'), 'Desktop', 'Uploads', 'img')
+# Construct the upload path relative to the app folder
+upload_path = os.path.join('static', 'uploads')
 
 # Create the directories if the don't exist
 os.makedirs(upload_path, exist_ok=True)
 print(upload_path)
+
 app.config["UPLOADS"] = upload_path
 app.config["ALLOWED_FILE_EXTENSIONS"] = ["JPEG", "JPG", "PNG", "GIF", "jpg"]
 # Define a secret key to enable session
-app.secret_key = os.environ.get("APP_SECRET_KEY", "default_secret_key")
+# app.secret_key = os.environ.get("APP_SECRET_KEY", "default_secret_key")
 
 
 @app.route("/", strict_slashes=False)
-def default():
-    """Default route"""
+@app.route('/index', strict_slashes=False)
+@login_required
+def index():
+    """Index route"""
     return render_template('upload.html')
 
 
@@ -56,6 +64,7 @@ def create_user():
     response.status_code = 201
 
     return response
+
 
 def allowed_file(filename):
     """check if the file extension is allowed"""
@@ -127,3 +136,29 @@ def second_review():
         return render_template('second_review.html', user_image=image_path)
     else:
         return "Image not found"
+
+
+@app.route('/login', methods=['GET', 'POST'], strict_slashes=False)
+def login():
+    """Login Users"""
+    if current_user.is_authenticated:
+        return redirect(url_for('index'))
+    form = LoginForm()
+    if form.validate_on_submit():
+        user = User.query.filter_by(username=form.username.data).first()
+        if user is None or not user.check_password(form.password.data):
+            flash('Invalid username or password')
+            return redirect(url_for('login'))
+        login_user(user, remember=form.remember_me.data)
+        next_page = request.args.get('next')
+        if not next_page or url_parse(next_page).netloc != '':
+            next_page = url_for('index')
+        return redirect(next_page)
+    return render_template('login.html', title='Sign In', form=form)
+
+
+@app.route('/logout', strict_slashes=False)
+def logout():
+    """Logout Users"""
+    logout_user()
+    return redirect(url_for('index'))

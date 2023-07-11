@@ -1,13 +1,16 @@
 from datetime import datetime
 from app import db
+from app import login
+from werkzeug.security import generate_password_hash, check_password_hash
+from flask_login import UserMixin
 
 
-class User(db.Model):
+class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(64), index=True, unique=True)
     email = db.Column(db.String(120), index=True, unique=True)
     name = db.Column(db.String(120), index=True)
-    password = db.Column(db.String(128))
+    password_hash = db.Column(db.String(128))
     artworks = db.relationship('Artwork', backref='uploader', lazy='dynamic')
 
     def __repr__(self):
@@ -27,6 +30,16 @@ class User(db.Model):
             if field in data:
                 setattr(self, field, data[field])
 
+    def set_password(self, password):
+        """implement password hashing"""
+        self.password_hash = generate_password_hash(password)
+
+    def check_password(self, password):
+        """Performs verification takes password hash
+        and password entered by user at time of login"""
+        return check_password_hash(self.password_hash, password)
+
+
 class Artwork(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(140), index=True)
@@ -36,3 +49,8 @@ class Artwork(db.Model):
 
     def __repr__(self):
         return f'<Artwork {self.title}>'
+
+@login.user_loader
+def load_user(id):
+    """Load a user given the ID"""
+    return User.query.get(int(id))
