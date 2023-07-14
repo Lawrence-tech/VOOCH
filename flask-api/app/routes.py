@@ -9,29 +9,18 @@ from werkzeug.utils import secure_filename
 from app.forms import LoginForm, RegistrationForm
 from werkzeug.urls import url_parse
 
-
-# upload_path = os.path.join(expanduser('~'), 'Desktop', 'Uploads', 'img')
-
-# Construct the upload path relative to the app folder
 upload_path = os.path.join('static', 'uploads')
-
-# Create the directories if the don't exist
 os.makedirs(upload_path, exist_ok=True)
 print(upload_path)
 
 app.config["UPLOADS"] = upload_path
 app.config["ALLOWED_FILE_EXTENSIONS"] = ["JPEG", "JPG", "PNG", "GIF", "jpg"]
-# Define a secret key to enable session
-# app.secret_key = os.environ.get("APP_SECRET_KEY", "default_secret_key")
-
 
 @app.route("/", strict_slashes=False)
 @app.route('/index', strict_slashes=False)
 @login_required
 def index():
-    """Index route"""
     return render_template('upload.html')
-
 
 @app.route('/api/users')
 def all_users():
