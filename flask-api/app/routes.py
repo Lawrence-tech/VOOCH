@@ -3,7 +3,7 @@ from flask_login import current_user, login_user, logout_user, login_required
 from app.models import User
 import os
 from os.path import expanduser
-from flask import jsonify, render_template, request, redirect, session, flash
+from flask import jsonify, render_template, request, redirect, session, flash, url_for
 from werkzeug.utils import secure_filename
 from app.forms import LoginForm
 from werkzeug.urls import url_parse
