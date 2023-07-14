@@ -1,7 +1,7 @@
 {% extends "base.html" %}    
 
 {% block content %}
-    <p>Your opinion counts. Rate this artwork</p>
+    <p>{{ current_user.username }}, your opinion counts. Rate this artwork</p>
  
     <img src="{{ user_image }}" alt="artwork image" width="500" height="400">
     <form action="/first_review" target="_blank">
