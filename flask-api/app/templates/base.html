@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <link rel="stylesheet" href='/static/main.css' />
     {% if title %}
     <title>{{ title }} - VOOCH</title>
     {% else %}
     <title>Welcome to VOOCH</title>
     {% endif %}
+    <!-- Fontawseome CDN Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"/>
+    <!--<script src="script.js" defer></script>-->
+    <!--<script src="{{url_for('static', filename='script.js')}}"></script>-->
   </head>
   <body>
     <h1>VOOCH helps you get artwork feedback in jiffy</h1>

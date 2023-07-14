@@ -3,9 +3,10 @@ from flask_login import current_user, login_user, logout_user, login_required
 from app.models import User
 import os
 from os.path import expanduser
-from flask import jsonify, render_template, request, redirect, session, flash
+from flask import jsonify, render_template, request, redirect, session, flash,\
+    url_for
 from werkzeug.utils import secure_filename
-from app.forms import LoginForm
+from app.forms import LoginForm, RegistrationForm
 from werkzeug.urls import url_parse
 
 
@@ -162,3 +163,20 @@ def logout():
     """Logout Users"""
     logout_user()
     return redirect(url_for('index'))
+
+
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+    """Handles user registrations"""
+    if current_user.is_authenticated:
+        return redirect(url_for('index'))
+    form = RegistrationForm()
+    if form.validate_on_submit():
+        user = User(username=form.username.data, name=form.name.data,
+                    email=form.email.data)
+        user.set_password(form.password.data)
+        db.session.add(user)
+        db.session.commit()
+        flash('Congratulations, your registered')
+        return redirect(url_for('login'))
+    return render_template('register.html', title='Register', form=form)
