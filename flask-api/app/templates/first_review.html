@@ -1,7 +1,7 @@
 {% extends "base.html"  %}
 
 {% block content %}
-    <p>Please give your input on this artwork</p>
+    <p>{{ current_user.username }}, please give your input on this artwork</p>
  
     <img src="{{ user_image }}" alt="artwork image" width="1000" height="500">
     <p>The advertsiser is clear with his communication.</p>
