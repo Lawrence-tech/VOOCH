@@ -19,7 +19,24 @@
       {% endfor %}
     </p>
     <p>{{ form.remember_me() }} {{ form.remember_me.label }}
+    <!-- Hidden input field for user_type -->
+    <input type="hidden" name="user_type" id="user_type" value="">
+    <!-- User/Reviewer selection -->
+    <label for="login_type">Login as:</label>
+    <select name="login_type" id="login_type">
+      <option value="user">User</option>
+      <option value="reviewer">Reviewer</option>
+    </select>
     <p>{{ form.submit() }}</p>
     <p>New User? <a href="{{ url_for('register') }}">Click to Register!</a></p>
   </form>
+
+<script>
+  // Javascript to set the value of the user_type on the selected option
+  document.getElementById('login_type').addEventListener('change', function() {
+    const userTypeInput = document.getElementById('user_type');
+    const selectedOptin = this.value;
+    userTypeInput.value = selectedOption;
+  });
+</script>
 {% endblock %}
