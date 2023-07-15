@@ -1,6 +1,6 @@
 from app import app, db
 from flask_login import current_user, login_user, logout_user, login_required
-from app.models import User
+from app.models import User, Reviewer
 import os
 from os.path import expanduser
 from flask import jsonify, render_template, request, redirect, session, flash,\
@@ -141,20 +141,38 @@ def second_review():
 
 @app.route('/login', methods=['GET', 'POST'], strict_slashes=False)
 def login():
-    """Login Users"""
-    if current_user.is_authenticated:
-        return redirect(url_for('index'))
-    form = LoginForm()
-    if form.validate_on_submit():
-        user = User.query.filter_by(username=form.username.data).first()
-        if user is None or not user.check_password(form.password.data):
-            flash('Invalid username or password')
-            return redirect(url_for('login'))
-        login_user(user, remember=form.remember_me.data)
-        next_page = request.args.get('next')
-        if not next_page or url_parse(next_page).netloc != '':
-            next_page = url_for('index')
-        return redirect(next_page)
+    """Login Users/Reviewers"""
+    if request.method == 'POST':
+        user_type = request.form.get('user_type')
+        if user_type == 'user':
+            if current_user.is_authenticated:
+                return redirect(url_for('index'))
+            form = LoginForm()
+            if form.validate_on_submit():
+                user = User.query.filter_by(username=form.username.data).first()
+                if user is None or not user.check_password(form.password.data):
+                    flash('Invalid username or password')
+                    return redirect(url_for('login'))
+                login_user(user, remember=form.remember_me.data)
+                next_page = request.args.get('next')
+                if not next_page or url_parse(next_page).netloc != '':
+                    next_page = url_for('index')
+                return redirect(next_page)
+        elif user_type == 'reviewer':
+            if current_user.is_authenticated:
+                return redirect(url_for('image_display'))
+            form = LoginForm()
+            if form.validate_on_submit():
+                reviewer = Reviewer.query.filter_by(username=form.username.data).first()
+                if reviewer is None or not reviewer.check_password(form.password.data):
+                    flash('Invalid username or password')
+                    return redirect(url_for('login'))
+                login_user(reviewer, remember=form.remember_me.data)
+                next_page = request.args.get('next')
+                if not next_page or url_parse(next_page).netloc != '':
+                    next_page = url_for('index')
+                return redirect(next_page)
+    # if it's a GET request of login fails, render the login form template                
     return render_template('login.html', title='Sign In', form=form)
 
 
