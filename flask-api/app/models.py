@@ -88,7 +88,7 @@ class Artwork(db.Model):
     image = db.Column(db.String(140))
     timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-    reviwer_id = db.Column(db.Integer, db.ForeignKey('reviwer.id'))
+    reviwer_id = db.Column(db.Integer, db.ForeignKey('reviewer.id'))
 
     def __repr__(self):
         return f'<Artwork {self.title}>'
