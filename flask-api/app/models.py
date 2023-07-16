@@ -39,12 +39,13 @@ class User(UserMixin, db.Model):
         """Performs verification takes password hash
         and password entered by user at time of login"""
         return check_password_hash(self.password_hash, password)
-    
+
     # implement the is_reviwer property
     @property
     def is_reviewer(self):
         """Checks if its a reviewer"""
         return self.reviewer_privileges
+
 
 class Reviewer(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -80,6 +81,7 @@ class Reviewer(UserMixin, db.Model):
         and password entered by reviewer at time of login"""
         return check_password_hash(self.password_hash, password)
 
+
 class Artwork(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(140), index=True)
@@ -90,16 +92,18 @@ class Artwork(db.Model):
     def __repr__(self):
         return f'<Artwork {self.title}>'
 
+
 @login.user_loader
-def load_user(id):
-    """Load a user given the ID"""
-    user = User.query.get(int(id))
+def load_user(user_id):
+    """Load a user/reviwer given the ID"""
+    user = User.query.get(int(user_id))
     if user:
         return user
 
-@login.reviewer_loader
-def load_reviewer(id):
-    """Load a reviewer given the ID"""
-    reviewer = Reviewer.query.get(int(id))
+    # if the user with given ID is not a regular user, try loading a reviwer
+    reviewer = Reviewer.query.get(int(user_id))
     if reviewer:
         return reviewer
+
+    # if neither a user nor a reviwer is found with given ID
+    return None
