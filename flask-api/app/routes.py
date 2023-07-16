@@ -40,7 +40,7 @@ def user_login_required(view_function):
 
 @app.route("/", strict_slashes=False)
 @app.route('/index', strict_slashes=False)
-@user_login_required
+@login_required
 def index():
     """Index route"""
     return render_template('upload.html')
