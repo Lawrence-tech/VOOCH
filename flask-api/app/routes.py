@@ -155,12 +155,12 @@ def second_review():
 @app.route('/login', methods=['GET', 'POST'], strict_slashes=False)
 def login():
     """Login Users/Reviewers"""
+    form = LoginForm()
     if request.method == 'POST':
         user_type = request.form.get('user_type')
         if user_type == 'user':
             if current_user.is_authenticated:
                 return redirect(url_for('index'))
-            form = LoginForm()
             if form.validate_on_submit():
                 user = User.query.filter_by(username=form.username.data)\
                     .first()
@@ -188,7 +188,7 @@ def login():
                 if not next_page or url_parse(next_page).netloc != '':
                     next_page = url_for('index')
                 return redirect(next_page)
-    # if it's a GET request of login fails, render the login form template
+    # if it's a GET request or login fails, render the login form template
     return render_template('login.html', title='Sign In', form=form)
 
 
