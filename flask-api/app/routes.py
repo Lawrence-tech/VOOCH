@@ -25,9 +25,22 @@ app.config["ALLOWED_FILE_EXTENSIONS"] = ["JPEG", "JPG", "PNG", "GIF", "jpg"]
 # app.secret_key = os.environ.get("APP_SECRET_KEY", "default_secret_key")
 
 
+# Custom decorator  to restict route to authenticated users only
+def user_login_required(view_function):
+    """Only authencicated users not reviwers"""
+    def wrapper(*args, **kwargs):
+        """wrapper function"""
+        if current_user.is_authenticated and not current_user.is_reviewer:
+            return view_func(*args, **kwargs)
+        else:
+            # Redirect to login page
+            return redirect(url_for('login'))
+    return wrapper
+
+
 @app.route("/", strict_slashes=False)
 @app.route('/index', strict_slashes=False)
-@login_required
+@user_login_required
 def index():
     """Index route"""
     return render_template('upload.html')
@@ -149,7 +162,8 @@ def login():
                 return redirect(url_for('index'))
             form = LoginForm()
             if form.validate_on_submit():
-                user = User.query.filter_by(username=form.username.data).first()
+                user = User.query.filter_by(username=form.username.data)\
+                    .first()
                 if user is None or not user.check_password(form.password.data):
                     flash('Invalid username or password')
                     return redirect(url_for('login'))
@@ -163,8 +177,10 @@ def login():
                 return redirect(url_for('image_display'))
             form = LoginForm()
             if form.validate_on_submit():
-                reviewer = Reviewer.query.filter_by(username=form.username.data).first()
-                if reviewer is None or not reviewer.check_password(form.password.data):
+                reviewer = Reviewer.query.filter_by(username=form.username
+                                                    .data).first()
+                if reviewer is None or not \
+                        reviewer.check_password(form.password.data):
                     flash('Invalid username or password')
                     return redirect(url_for('login'))
                 login_user(reviewer, remember=form.remember_me.data)
@@ -172,7 +188,7 @@ def login():
                 if not next_page or url_parse(next_page).netloc != '':
                     next_page = url_for('index')
                 return redirect(next_page)
-    # if it's a GET request of login fails, render the login form template                
+    # if it's a GET request of login fails, render the login form template
     return render_template('login.html', title='Sign In', form=form)
 
 
