@@ -169,12 +169,8 @@ def second_review():
 def login():
     """Login Users/Reviewers"""
     user_type = request.form.get('user_type')
-    print(user_type)
-    print('printed user types')
     if user_type == 'user':
-        print('Checked user')
         if current_user.is_authenticated:
-            print('checked if already authenticated')
             return redirect(url_for('index'))
         form = LoginForm()
         if form.validate_on_submit():
@@ -218,16 +214,34 @@ def logout():
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
-    """Handles user registrations"""
-    if current_user.is_authenticated:
-        return redirect(url_for('index'))
-    form = RegistrationForm()
-    if form.validate_on_submit():
-        user = User(username=form.username.data, name=form.name.data,
-                    email=form.email.data)
-        user.set_password(form.password.data)
-        db.session.add(user)
-        db.session.commit()
-        flash('Congratulations, your registered')
-        return redirect(url_for('login'))
-    return render_template('register.html', title='Register', form=form)
+    """Handles user registrations for users/reviwers"""
+    user_type = request.form.get('user_type')
+    if user_type == 'user':
+        if current_user.is_authenticated:
+            return redirect(url_for('index'))
+        registration_form = RegistrationForm()
+        if registration_form.validate_on_submit():
+            user = User(username=registration_form.username.data,
+                        name=registration_form.name.data,
+                        email=registration_form.email.data)
+            user.set_password(registration_form.password.data)
+            db.session.add(user)
+            db.session.commit()
+            flash('Congratulations, your registered')
+            return redirect(url_for('login'))
+    if user_type == 'reviewer':
+        if current_user.is_authenticated:
+            return redirect(url_for('image_display'))
+        registration_form = RegistrationForm()
+        if registration_form.validate_on_submit():
+            reviewer = Reviewer(username=registration_form.username.data,
+                                name=registration_form.name.data,
+                                email=registration_form.email.data)
+            reviewer.set_password(registration_form.password.data)
+            db.session.add(reviewer)
+            db.session.commit()
+            flash('Congratulations, your registered')
+            return redirect(url_for('login'))
+    registration_form = RegistrationForm()
+    return render_template('register.html', title='Register',
+                           form=registration_form)
