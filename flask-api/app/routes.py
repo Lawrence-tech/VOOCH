@@ -38,6 +38,19 @@ def user_login_required(view_function):
     return wrapper
 
 
+# Custom decorator  to restict route to authenticated reviwers only
+def reviewer_login_required(view_function):
+    """Only authencicated reviewers not users"""
+    def wrapper(*args, **kwargs):
+        """wrapper function"""
+        if current_user.is_authenticated and current_user.is_reviewer:
+            return view_func(*args, **kwargs)
+        else:
+            # Redirect to login page
+            return redirect(url_for('login'))
+    return wrapper
+
+
 @app.route("/", strict_slashes=False)
 @app.route('/index', strict_slashes=False)
 @login_required
