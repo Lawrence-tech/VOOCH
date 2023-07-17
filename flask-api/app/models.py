@@ -53,6 +53,7 @@ class Reviewer(UserMixin, db.Model):
     email = db.Column(db.String(120), index=True, unique=True)
     name = db.Column(db.String(120), index=True)
     password_hash = db.Column(db.String(128))
+    reviewer_privileges = db.Column(db.Boolean, default=True)
     artworks = db.relationship('Artwork', backref='reviewer', lazy='dynamic')
 
     def __repr__(self):
@@ -80,6 +81,12 @@ class Reviewer(UserMixin, db.Model):
         """Performs verification takes password hash
         and password entered by reviewer at time of login"""
         return check_password_hash(self.password_hash, password)
+
+    # implement the is_reviwer property
+    @property
+    def is_reviewer(self):
+        """Checks if its a reviewer"""
+        return self.reviewer_privileges
 
 
 class Artwork(db.Model):
