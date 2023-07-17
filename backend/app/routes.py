@@ -206,29 +206,7 @@ from flask import request, jsonify, render_template
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
-<<<<<<< HEAD:backend/app/routes.py
-    """Handles user registrations"""
-    if current_user.is_authenticated:
-        return redirect(url_for('index'))
 
-    if request.method == 'POST':
-        form = RegistrationForm()
-        if form.validate_on_submit():
-            user = User(username=form.username.data, name=form.name.data,
-                        email=form.email.data)
-            user.set_password(form.password.data)
-            db.session.add(user)
-            db.session.commit()
-            flash('Congratulations, you are registered')
-            return jsonify({'message': 'Registration successful'})  # Modify the JSON response as needed
-        else:
-            # Handle form validation failure for JSON requests
-            return jsonify({'error': 'Invalid form data'})  # Modify the JSON response as needed
-
-    else:
-        return render_template('register.html', title='Register', form=form)
-
-=======
     """Handles user registrations for users/reviwers"""
     user_type = request.form.get('user_type')
     if user_type == 'user':
@@ -260,4 +238,3 @@ def register():
     registration_form = RegistrationForm()
     return render_template('register.html', title='Register',
                            form=registration_form)
->>>>>>> origin/rungene:flask-api/app/routes.py
