@@ -1,6 +1,6 @@
 from app import app, db
 from flask_login import current_user, login_user, logout_user, login_required
-from app.models import User
+from app.models import User, Reviewer
 import os
 from os.path import expanduser
 from flask import jsonify, render_template, request, redirect, session, flash, url_for
@@ -14,6 +14,32 @@ print(upload_path)
 
 app.config["UPLOADS"] = upload_path
 app.config["ALLOWED_FILE_EXTENSIONS"] = ["JPEG", "JPG", "PNG", "GIF", "jpg"]
+
+# Custom decorator  to restict route to authenticated users only
+def user_login_required(view_function):
+    """Only authencicated users not reviwers"""
+    def wrapper(*args, **kwargs):
+        """wrapper function"""
+        if current_user.is_authenticated and not current_user.is_reviewer:
+            return view_func(*args, **kwargs)
+        else:
+            # Redirect to login page
+            return redirect(url_for('login'))
+    return wrapper
+
+
+# Custom decorator  to restict route to authenticated reviwers only
+def reviewer_login_required(view_function):
+    """Only authencicated reviewers not users"""
+    def wrapper(*args, **kwargs):
+        """wrapper function"""
+        if current_user.is_authenticated and current_user.is_reviewer:
+            return view_func(*args, **kwargs)
+        else:
+            # Redirect to login page
+            return redirect(url_for('login'))
+    return wrapper
+
 
 @app.route("/", strict_slashes=False)
 @app.route('/index', strict_slashes=False)
@@ -129,20 +155,41 @@ def second_review():
 
 @app.route('/login', methods=['GET', 'POST'], strict_slashes=False)
 def login():
-    """Login Users"""
-    if current_user.is_authenticated:
-        return redirect(url_for('index'))
+    """Login Users/Reviewers"""
+    user_type = request.form.get('user_type')
+    if user_type == 'user':
+        if current_user.is_authenticated:
+            return redirect(url_for('index'))
+        form = LoginForm()
+        if form.validate_on_submit():
+            user = User.query.filter_by(username=form.username.data)\
+                .first()
+            if user is None or not user.check_password(form.password.data):
+                flash('Invalid username or password')
+                return redirect(url_for('login'))
+            login_user(user, remember=form.remember_me.data)
+            next_page = request.args.get('next')
+            if not next_page or url_parse(next_page).netloc != '':
+                next_page = url_for('index')
+            return redirect(next_page)
+    elif user_type == 'reviewer':
+        if current_user.is_authenticated:
+            return redirect(url_for('image_display'))
+        form = LoginForm()
+        if form.validate_on_submit():
+            reviewer = Reviewer.query.filter_by(username=form.username
+                                                .data).first()
+            if reviewer is None or not \
+                    reviewer.check_password(form.password.data):
+                flash('Invalid username or password')
+                return redirect(url_for('login'))
+            login_user(reviewer, remember=form.remember_me.data)
+            next_page = request.args.get('next')
+            if not next_page or url_parse(next_page).netloc != '':
+                next_page = url_for('index')
+            return redirect(next_page)
+    # if it's a GET request or login fails, render the login form template
     form = LoginForm()
-    if form.validate_on_submit():
-        user = User.query.filter_by(username=form.username.data).first()
-        if user is None or not user.check_password(form.password.data):
-            flash('Invalid username or password')
-            return redirect(url_for('login'))
-        login_user(user, remember=form.remember_me.data)
-        next_page = request.args.get('next')
-        if not next_page or url_parse(next_page).netloc != '':
-            next_page = url_for('index')
-        return redirect(next_page)
     return render_template('login.html', title='Sign In', form=form)
 
 
@@ -159,6 +206,7 @@ from flask import request, jsonify, render_template
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
+<<<<<<< HEAD:backend/app/routes.py
     """Handles user registrations"""
     if current_user.is_authenticated:
         return redirect(url_for('index'))
@@ -180,3 +228,36 @@ def register():
     else:
         return render_template('register.html', title='Register', form=form)
 
+=======
+    """Handles user registrations for users/reviwers"""
+    user_type = request.form.get('user_type')
+    if user_type == 'user':
+        if current_user.is_authenticated:
+            return redirect(url_for('index'))
+        registration_form = RegistrationForm()
+        if registration_form.validate_on_submit():
+            user = User(username=registration_form.username.data,
+                        name=registration_form.name.data,
+                        email=registration_form.email.data)
+            user.set_password(registration_form.password.data)
+            db.session.add(user)
+            db.session.commit()
+            flash('Congratulations, your registered')
+            return redirect(url_for('login'))
+    if user_type == 'reviewer':
+        if current_user.is_authenticated:
+            return redirect(url_for('image_display'))
+        registration_form = RegistrationForm()
+        if registration_form.validate_on_submit():
+            reviewer = Reviewer(username=registration_form.username.data,
+                                name=registration_form.name.data,
+                                email=registration_form.email.data)
+            reviewer.set_password(registration_form.password.data)
+            db.session.add(reviewer)
+            db.session.commit()
+            flash('Congratulations, your registered')
+            return redirect(url_for('login'))
+    registration_form = RegistrationForm()
+    return render_template('register.html', title='Register',
+                           form=registration_form)
+>>>>>>> origin/rungene:flask-api/app/routes.py

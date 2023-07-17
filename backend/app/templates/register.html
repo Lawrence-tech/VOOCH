@@ -39,6 +39,27 @@
       <span style="color: red;">[{{ error }}]</span>
       {% endfor %}
     </p>
+    <!-- Hidden input field for user_type -->
+    <input type="hidden" name="user_type" id="user_type" value="">
+
+    <!-- User/Reviwer selection -->
+    <label for="registration_type">Register as:</label>
+    <select name="registration_type" id="registration_type">
+      <option value="" selected disabled>Select User Type</option>
+      <option value="user">User</option>
+      <option value="reviewer">Reviewer</option>
+    </select>
+
+    <!-- Registration button -->
     <p>{{ form.submit() }}</p>
   </form>
+
+<script>
+  // JavaScript to set the value of the user_type on the selected option
+  document.getElementById('registration_type').addEventListener('change', function () {
+    const userTypeInput = document.getElementById('user_type');
+    const selectedOption = this.value;
+    userTypeInput.value = selectedOption;
+  });
+</script>
 {% endblock %}
