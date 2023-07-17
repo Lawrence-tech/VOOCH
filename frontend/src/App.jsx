@@ -1,5 +1,5 @@
 import React from 'react';
-import { Hero, Navbar,Companies, Courses, Achievement, Categories, Feedback, CTA, Footer } from './components';
+import { Hero, Navbar,Companies, Courses, Achievement, Categories, Feedback, CTA, Footer, RegistrationForm } from './components';
 import './App.css'
 
 const App = () => {

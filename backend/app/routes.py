@@ -153,18 +153,30 @@ def logout():
     return redirect(url_for('index'))
 
 
+from flask import request, jsonify, render_template
+
+# ...
+
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     """Handles user registrations"""
     if current_user.is_authenticated:
         return redirect(url_for('index'))
-    form = RegistrationForm()
-    if form.validate_on_submit():
-        user = User(username=form.username.data, name=form.name.data,
-                    email=form.email.data)
-        user.set_password(form.password.data)
-        db.session.add(user)
-        db.session.commit()
-        flash('Congratulations, your registered')
-        return redirect(url_for('login'))
-    return render_template('register.html', title='Register', form=form)
+
+    if request.method == 'POST':
+        form = RegistrationForm()
+        if form.validate_on_submit():
+            user = User(username=form.username.data, name=form.name.data,
+                        email=form.email.data)
+            user.set_password(form.password.data)
+            db.session.add(user)
+            db.session.commit()
+            flash('Congratulations, you are registered')
+            return jsonify({'message': 'Registration successful'})  # Modify the JSON response as needed
+        else:
+            # Handle form validation failure for JSON requests
+            return jsonify({'error': 'Invalid form data'})  # Modify the JSON response as needed
+
+    else:
+        return render_template('register.html', title='Register', form=form)
+

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+// import {RegistrationForm} from "./components"
 import {vlogo,lock, hamburgerMenu, close} from '../assets'
 
 const Navbar = () => {
@@ -28,7 +29,7 @@ const Navbar = () => {
                     <img src={lock} />
                     Login
                 </button>
-                <button className='px-8 py-3 rounded-md bg-[#367DE8] text-white font-bold'>Sign Up For Free</button>
+                <button className='px-8 py-3 rounded-md bg-[#367DE8] text-white font-bold'>Register</button>
             </div>
 
             <div className='md:hidden'  onClick={handleClick}>
@@ -52,7 +53,7 @@ const Navbar = () => {
                          <img src={lock} />
                          Login
                         </button>
-                        <button className='px-8 py-5 rounded-md bg-[#367DE8] text-white font-bold'>Sign Up For Free</button>
+                        <button className='px-8 py-5 rounded-md bg-[#367DE8] text-white font-bold'>Register</button>
                     </div>
             </ul>
         </div>
