@@ -76,10 +76,10 @@ def all_reviewers():
 
 
 @app.route('/api/users/<int:id>')
-def reviewer(id):
-    """Returns one reviewer when id is passed"""
-    reviewer = Reviewer.query.get(id)
-    return jsonify(reviewer.to_dict())
+def user(id):
+    """Returns one user when id is passed"""
+    user = User.query.get(id)
+    return jsonify(user.to_dict())
 
 
 @app.route('/api/users', methods=['POST'])
