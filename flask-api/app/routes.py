@@ -59,7 +59,7 @@ def index():
     return render_template('upload.html')
 
 
-@app.route('/api/users')
+@app.route('/api/users', strict_slashes=False)
 def all_users():
     """Returns all users in json format"""
     users = User.query.all()
@@ -67,11 +67,19 @@ def all_users():
     return jsonify(users_data)
 
 
+@app.route('/api/reviewers', strict_slashes=False)
+def all_reviewers():
+    """Returns all Reviewers in json format"""
+    reviewers = Reviewer.query.all()
+    reviewers_data = [reviewer.to_dict() for reviewer in reviewers]
+    return jsonify(reviewers_data)
+
+
 @app.route('/api/users/<int:id>')
-def user(id):
-    """Returns one user when id is passed"""
-    user = User.query.get(id)
-    return jsonify(user.to_dict())
+def reviewer(id):
+    """Returns one reviewer when id is passed"""
+    reviewer = Reviewer.query.get(id)
+    return jsonify(reviewer.to_dict())
 
 
 @app.route('/api/users', methods=['POST'])
