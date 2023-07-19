@@ -1,15 +1,15 @@
 # VOOCH Project
 
 
-## About VOOCH/VOOHC
-VOOHC/VOOCH is designed for clients involved in OOH advertising, including advertisers, marketing agencies, and businesses seeking to promote their products or services through billboards, bus shelters, and digital signage. 
+## Description
+The project is designed for clients involved in OOH advertising, including advertisers, marketing agencies, and businesses seeking to promote their products or services through billboards, bus shelters, and digital signage. 
 
 The primary goal was to create a seamless user experience that allowed advertisers, marketing agencies, and businesses to preview their OOH artworks, select locations, and test them with the target market.
  
   
 
 
-![Screenshot (39)](/home/lawrence/VOOCH/frontend/src/assets/voochm.png)
+![Screenshot (39)](https://github.com/Lawrence-tech/VOOCH/blob/main/frontend/src/assets/voochm.png)
 
 
 
