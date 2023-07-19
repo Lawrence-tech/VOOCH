@@ -1,4 +1,5 @@
 from app import app, db
+from functools import wraps
 from flask_login import current_user, login_user, logout_user, login_required
 from app.models import User, Reviewer
 import os
@@ -26,26 +27,32 @@ app.config["ALLOWED_FILE_EXTENSIONS"] = ["JPEG", "JPG", "PNG", "GIF", "jpg"]
 
 
 # Custom decorator  to restict route to authenticated users only
-def user_login_required(view_function):
+def user_login_required(view_func):
     """Only authencicated users not reviwers"""
+    # Use wraps to preserve the original function's name/docstring
+    @wraps(view_func)
     def wrapper(*args, **kwargs):
         """wrapper function"""
         if current_user.is_authenticated and not current_user.is_reviewer:
             return view_func(*args, **kwargs)
         else:
+            flash('Please login as a user')
             # Redirect to login page
             return redirect(url_for('login'))
     return wrapper
 
 
 # Custom decorator  to restict route to authenticated reviwers only
-def reviewer_login_required(view_function):
+def reviewer_login_required(view_func):
     """Only authencicated reviewers not users"""
+    # Use wraps to preserve the original function's name/docstring
+    @wraps(view_func)
     def wrapper(*args, **kwargs):
         """wrapper function"""
         if current_user.is_authenticated and current_user.is_reviewer:
             return view_func(*args, **kwargs)
         else:
+            flash('Please login as a Reviewer')
             # Redirect to login page
             return redirect(url_for('login'))
     return wrapper
@@ -56,10 +63,11 @@ def reviewer_login_required(view_function):
 @login_required
 def index():
     """Index route"""
-    return render_template('upload.html')
+    return render_template('index.html')
 
 
 @app.route('/api/users', strict_slashes=False)
+@user_login_required
 def all_users():
     """Returns all users in json format"""
     users = User.query.all()
@@ -68,6 +76,7 @@ def all_users():
 
 
 @app.route('/api/reviewers', strict_slashes=False)
+@reviewer_login_required
 def all_reviewers():
     """Returns all Reviewers in json format"""
     reviewers = Reviewer.query.all()
@@ -122,7 +131,7 @@ def allowed_file(filename):
         return False
 
 
-@app.route("/", strict_slashes=False, methods=["GET", "POST"])
+@app.route("/upload", strict_slashes=False, methods=["GET", "POST"])
 def upload_file():
     """defines upload file route"""
     if request.method == "POST":
@@ -182,42 +191,44 @@ def second_review():
 
 @app.route('/login', methods=['GET', 'POST'], strict_slashes=False)
 def login():
-    """Login Users/Reviewers"""
-    user_type = request.form.get('user_type')
-    if user_type == 'user':
-        if current_user.is_authenticated:
-            return redirect(url_for('index'))
-        form = LoginForm()
-        if form.validate_on_submit():
-            user = User.query.filter_by(username=form.username.data)\
-                .first()
-            if user is None or not user.check_password(form.password.data):
-                flash('Invalid username or password')
-                return redirect(url_for('login'))
-            login_user(user, remember=form.remember_me.data)
-            next_page = request.args.get('next')
-            if not next_page or url_parse(next_page).netloc != '':
-                next_page = url_for('index')
-            return redirect(next_page)
-    elif user_type == 'reviewer':
-        if current_user.is_authenticated:
-            return redirect(url_for('image_display'))
-        form = LoginForm()
-        if form.validate_on_submit():
-            reviewer = Reviewer.query.filter_by(username=form.username
-                                                .data).first()
-            if reviewer is None or not \
-                    reviewer.check_password(form.password.data):
-                flash('Invalid username or password')
-                return redirect(url_for('login'))
-            login_user(reviewer, remember=form.remember_me.data)
-            next_page = request.args.get('next')
-            if not next_page or url_parse(next_page).netloc != '':
-                next_page = url_for('index')
-            return redirect(next_page)
-    # if it's a GET request or login fails, render the login form template
+    """Display the login form and handle login forUsers/Reviewers"""
     form = LoginForm()
+    if form.validate_on_submit():
+        if form.user_type.data == 'user':
+            return login_user_as_user(form)
+        elif form.user_type.data == 'reviewer':
+            return login_user_as_reviewer(form)
+        else:
+            flash('Invalid user type')
     return render_template('login.html', title='Sign In', form=form)
+
+
+def login_user_as_user(form):
+    if current_user.is_authenticated:
+        return redirect(url_for('index'))
+    user = User.query.filter_by(username=form.username.data).first()
+    if user is None or not user.check_password(form.password.data):
+        flash('Invalid username or password')
+        return redirect(url_for('login'))
+    login_user(user, remember=form.remember_me.data)
+    next_page = request.args.get('next')
+    if not next_page or url_parse(next_page).netloc != '':
+        next_page = url_for('index')
+    return redirect(next_page)
+
+
+def login_user_as_reviewer(form):
+    if current_user.is_authenticated:
+        return redirect(url_for('index'))
+    reviewer = Reviewer.query.filter_by(username=form.username.data).first()
+    if reviewer is None or not reviewer.check_password(form.password.data):
+        flash('Invalid username or password')
+        return redirect(url_for('login'))
+    login_user(reviewer, remember=form.remember_me.data)
+    next_page = request.args.get('next')
+    if not next_page or url_parse(next_page).netloc != '':
+        next_page = url_for('index')
+    return redirect(next_page)
 
 
 @app.route('/logout', strict_slashes=False)
