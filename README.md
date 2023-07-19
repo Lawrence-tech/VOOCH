@@ -9,7 +9,7 @@ The primary goal was to create a seamless user experience that allowed advertise
   
 
 
-![Screenshot (39)](https://github.com/Lawrence-tech/VOOCH/blob/main/frontend/src/assets/voochm.png)
+![Screenshot (39)](https://vooch.netlify.app/)
 
 
 
