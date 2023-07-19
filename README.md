@@ -80,8 +80,11 @@ $ `cd VOOCH/`
 
 ##### Start local dev server
 $ `environments/source my_env/bin/activate`
+
 $ `export FLASK_APP=vooch.py`
+
 $ `export FLASK_ENV=development`
+
 $ `flask run`
 
 ### Deployment and hosting ⚙️
@@ -116,6 +119,7 @@ By proactively addressing technical risks through performance optimization, comp
 ## Authors
 
 CLEVERS RUNGENE - Project Manager
+
 LAWRENCE SAGINI
 
 
