@@ -1,64 +1,30 @@
 # VOOCH Project
 
-HINT: To fiure out which Bootstrap components/snippets are used. Refer to the PDF below:
-https://github.com/appbrewery/tindog/blob/main/Bootstrap-snippets.pdf
 
-## SVGs:
+## About VOOCH/VOOHC
+VOOHC/VOOCH is designed for clients involved in OOH advertising, including advertisers, marketing agencies, and businesses seeking to promote their products or services through billboards, bus shelters, and digital signage. 
 
-Apple Logo:
-<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                class="bi bi-apple mb-1" viewBox="0 0 16 16">
-<path
-                  d="M11.182.008C11.148-.03 9.923.023 8.857 1.18c-1.066 1.156-.902 2.482-.878 2.516.024.034 1.52.087 2.475-1.258.955-1.345.762-2.391.728-2.43Zm3.314 11.733c-.048-.096-2.325-1.234-2.113-3.422.212-2.189 1.675-2.789 1.698-2.854.023-.065-.597-.79-1.254-1.157a3.692 3.692 0 0 0-1.563-.434c-.108-.003-.483-.095-1.254.116-.508.139-1.653.589-1.968.607-.316.018-1.256-.522-2.267-.665-.647-.125-1.333.131-1.824.328-.49.196-1.422.754-2.074 2.237-.652 1.482-.311 3.83-.067 4.56.244.729.625 1.924 1.273 2.796.576.984 1.34 1.667 1.659 1.899.319.232 1.219.386 1.843.067.502-.308 1.408-.485 1.766-.472.357.013 1.061.154 1.782.539.571.197 1.111.115 1.652-.105.541-.221 1.324-1.059 2.238-2.758.347-.79.505-1.217.473-1.282Z" />
-<path
-                  d="M11.182.008C11.148-.03 9.923.023 8.857 1.18c-1.066 1.156-.902 2.482-.878 2.516.024.034 1.52.087 2.475-1.258.955-1.345.762-2.391.728-2.43Zm3.314 11.733c-.048-.096-2.325-1.234-2.113-3.422.212-2.189 1.675-2.789 1.698-2.854.023-.065-.597-.79-1.254-1.157a3.692 3.692 0 0 0-1.563-.434c-.108-.003-.483-.095-1.254.116-.508.139-1.653.589-1.968.607-.316.018-1.256-.522-2.267-.665-.647-.125-1.333.131-1.824.328-.49.196-1.422.754-2.074 2.237-.652 1.482-.311 3.83-.067 4.56.244.729.625 1.924 1.273 2.796.576.984 1.34 1.667 1.659 1.899.319.232 1.219.386 1.843.067.502-.308 1.408-.485 1.766-.472.357.013 1.061.154 1.782.539.571.197 1.111.115 1.652-.105.541-.221 1.324-1.059 2.238-2.758.347-.79.505-1.217.473-1.282Z" />
-</svg>
+The primary goal was to create a seamless user experience that allowed advertisers, marketing agencies, and businesses to preview their OOH artworks, select locations, and test them with the target market.
+ 
+  
 
-Google Play Logo:
-<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                class="bi bi-google-play mb-1" viewBox="0 0 16 16">
-<path
-                  d="M14.222 9.374c1.037-.61 1.037-2.137 0-2.748L11.528 5.04 8.32 8l3.207 2.96 2.694-1.586Zm-3.595 2.116L7.583 8.68 1.03 14.73c.201 1.029 1.36 1.61 2.303 1.055l7.294-4.295ZM1 13.396V2.603L6.846 8 1 13.396ZM1.03 1.27l6.553 6.05 3.044-2.81L3.333.215C2.39-.341 1.231.24 1.03 1.27Z" />
-</svg>
 
-Checkmark:
-<svg xmlns="http://www.w3.org/2000/svg" height="30" fill="currentColor" class="bi bi-check2-circle"
-              viewBox="0 0 16 16">
-<path
-                d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0z" />
-<path
-                d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l7-7z" />
-</svg>
+![Screenshot (39)](/home/lawrence/VOOCH/frontend/src/assets/voochm.png)
 
-Hat:
-<svg xmlns="http://www.w3.org/2000/svg" height="30" fill="currentColor" class="bi bi-mortarboard" viewBox="0 0 16 16">
-<path d="M8.211 2.047a.5.5 0 0 0-.422 0l-7.5 3.5a.5.5 0 0 0 .025.917l7.5 3a.5.5 0 0 0 .372 0L14 7.14V13a1 1 0 0 0-1 1v2h3v-2a1 1 0 0 0-1-1V6.739l.686-.275a.5.5 0 0 0 .025-.917l-7.5-3.5ZM8 8.46 1.758 5.965 8 3.052l6.242 2.913L8 8.46Z"/>
-<path d="M4.176 9.032a.5.5 0 0 0-.656.327l-.5 1.7a.5.5 0 0 0 .294.605l4.5 1.8a.5.5 0 0 0 .372 0l4.5-1.8a.5.5 0 0 0 .294-.605l-.5-1.7a.5.5 0 0 0-.656-.327L8 10.466 4.176 9.032Zm-.068 1.873.22-.748 3.496 1.311a.5.5 0 0 0 .352 0l3.496-1.311.22.748L8 12.46l-3.892-1.556Z"/>
-</svg>
 
-Heart:
-<svg xmlns="http://www.w3.org/2000/svg" height="30" fill="currentColor" class="bi bi-arrow-through-heart"
-              viewBox="0 0 16 16">
-<path fill-rule="evenodd"
-                d="M2.854 15.854A.5.5 0 0 1 2 15.5V14H.5a.5.5 0 0 1-.354-.854l1.5-1.5A.5.5 0 0 1 2 11.5h1.793l.53-.53c-.771-.802-1.328-1.58-1.704-2.32-.798-1.575-.775-2.996-.213-4.092C3.426 2.565 6.18 1.809 8 3.233c1.25-.98 2.944-.928 4.212-.152L13.292 2 12.147.854A.5.5 0 0 1 12.5 0h3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-.854.354L14 2.707l-1.006 1.006c.236.248.44.531.6.845.562 1.096.585 2.517-.213 4.092-.793 1.563-2.395 3.288-5.105 5.08L8 13.912l-.276-.182a21.86 21.86 0 0 1-2.685-2.062l-.539.54V14a.5.5 0 0 1-.146.354l-1.5 1.5Zm2.893-4.894A20.419 20.419 0 0 0 8 12.71c2.456-1.666 3.827-3.207 4.489-4.512.679-1.34.607-2.42.215-3.185-.817-1.595-3.087-2.054-4.346-.761L8 4.62l-.358-.368c-1.259-1.293-3.53-.834-4.346.761-.392.766-.464 1.845.215 3.185.323.636.815 1.33 1.519 2.065l1.866-1.867a.5.5 0 1 1 .708.708L5.747 10.96Z" />
-</svg>
 
-## Text:
 
-Visualize Out Of Home Creative (VOOHC)
-Helping you save Money and time, Always.
 
-So easy to use, even your ART could do it.
+## Table of Contents
+- Features
+- Installation
+- Technology stack
+- Challenge
+- Risks
+- Authors
+- Conclusion
 
-Visualize Out Of Home Creative (VOOHC) is a mobile/web application designed to assist clients in visualizing their
-approved out-of-home (OOH) artworks in real-world settings.
-
-The primary purpose of VOOHC is to provide a platform where clients can upload their OOH artwork and preview 
-how it will appear in various locations.
-
-The application also offers the ability to test the artwork(s) with the target market and receive instant feedback
-before proceeding with the printing process.
-
+## Features
 Here's an overview of how VOOHC works:
 
 Upload Artworks: Clients can easily upload their approved OOH artworks to the VOOHC platform.
@@ -95,99 +61,44 @@ with their target market, and making data-driven decisions for their advertising
 to optimize their OOH creatives for maximum impact and enhances the overall effectiveness of their marketing efforts.
 
 
-Here's an overview of how VOOHC works:
+### Pre-Designed Pages
+ℹ️ Home/About Page  
+📄 Sign In
+📝 Pricing 
+🗂️ Upload 
+📄 Features
+📄 Platform
+📞 Contact us   
 
+## Installation
+### Local development 🔧
+##### Clone the repository
+`git@github.com:Lawrence-tech/VOOCH.git`
 
+##### Cd in the project directory
+$ `cd VOOCH/`
 
-Team Members/ Authors
+##### Start local dev server
+$ `environments/source my_env/bin/activate`
+$ `export FLASK_APP=vooch.py`
+$ `export FLASK_ENV=development`
+$ `flask run`
 
-CLEVERS RUNGENE
+### Deployment and hosting ⚙️
+#### Deployed Site: 
+#### Blog Article: 
+#### LinkedIn: 
 
-LAWRENCE SAGINI
+## Challenge
 
-Roles played:
-
-Clevers - Project Manager: 
-
-Clevers will be responsible for overseeing the entire VOOHC project. He will coordinate with Lawrence, manage timelines,
-ensure smooth communication, and make critical decisions. Clevers's experience in project management and his ability to 
-handle multiple stakeholders make him well-suited for this role.
-
-Lawrence - UX/UI Designer:
-
-Lawrence will be in charge of the user experience (UX) and user interface (UI) design aspects of VOOHC.
-He will create intuitive and visually appealing interfaces, ensuring a seamless user experience.
-Lawrence's strong design skills, creativity, and understanding of user-centric design principles make him a valuable asset for this role.
-
-Lawrence - Front-End Developer:
-
-Lawrence will handle the front-end development of the VOOHC application.
-He will be responsible for translating the UX/UI designs into functional and responsive web and mobile interfaces.
-Lawrence's expertise in front-end technologies, such as HTML, CSS, and JavaScript, coupled with his attention to detail,
-makes him the ideal candidate for this role.
-
-Clevers - Back-End Developer:
-
-Clevers will be responsible for the back-end development of the VOOHC application.
-He will build the server-side logic, database integration, and API development to ensure the application functions smoothly. 
-Clevers's strong programming skills, knowledge of server-side languages (such as Python, Ruby, or Node.js), 
-and experience in database management make him well-suited for this role.
-
-Lawrence/Clevers - QA Tester:
-
-Both will play a crucial role in quality assurance (QA) testing for VOOHC. 
-They will thoroughly test the application, identify bugs or issues, and ensure its overall performance and reliability.
-Their meticulous attention to detail, analytical mindset, and experience in software testing methodologies qualify her for this role.
-
-Lawrence/Clevers - Marketing Specialist:
-
-They will both handle the marketing and promotion aspects of VOOHC. 
-They  will develop strategies to reach the target audience, create marketing campaigns, and establish partnerships with relevant stakeholders.
-Their strong marketing background, understanding of advertising trends, and ability to analyze market data will make them valuable team members.
-
-The selection of these roles has been based on the expertise, skills, and experience each team member brings to the project. The project manager ensures effective coordination and project delivery. The UX/UI designer focuses on creating an intuitive and visually appealing user experience. The front-end and back-end developers handle the technical implementation of the application. The QA tester ensures the application's quality and reliability. Finally, the marketing specialist drives the promotion and success of the VOOHC app in the market.
-These roles have been determined to ensure that each aspect of the project is handled by a dedicated team member with the required skill set. This division of responsibilities allows for specialization, collaboration, and the efficient completion of tasks. By assigning individuals to roles that align with their expertise, the team can maximize their contributions and deliver a high-quality product that meets the needs and expectations of the clients and user
-
-Technologies
-
-Languages:
-
-HTML5: Used for structuring the web application's content.
-CSS3: Used for styling the web application's elements.
-JavaScript: Used for client-side scripting and interactivity.
-Front-end Framework:
-React: A popular JavaScript library for building user interfaces. React's component-based architecture, virtual DOM, and large community support make it a suitable choice for developing responsive and dynamic interfaces.
-Back-end Framework:
-Node.js with Express.js: A JavaScript runtime environment and web application framework, respectively. Node.js allows server-side JavaScript execution, while Express.js simplifies the development of web applications by providing a robust set of features and middleware.
-Database:
-MongoDB: A NoSQL database that offers flexibility and scalability, making it suitable for handling complex data structures.
-Cloud Platform:
-Amazon Web Services (AWS) or Microsoft Azure: Both platforms offer a wide range of cloud services, including hosting, storage, and scalable infrastructure. The choice between AWS and Azure depends on factors such as familiarity, specific requirements, pricing, and available integrations.
-Version Control:
-Git: A distributed version control system used for tracking changes in code, collaboration, and managing different versions of the project.
-Testing Framework:
-Jest: A JavaScript testing framework widely used for unit testing React components and JavaScript functions. Jest provides a comprehensive set of testing utilities and assertions.
-Design Tools:
-Adobe Creative Cloud: Software tools like Photoshop and Illustrator are commonly used for creating and editing visual assets such as OOH artworks.
-Collaboration Tools:
-Project Management: Tools like Jira, Asana, or Trello can be used to manage tasks, track progress, and facilitate team collaboration.
-Communication: Platforms like Slack or Microsoft Teams help in seamless communication, file sharing, and real-time collaboration among team members.
-For the two technology choices, let's consider the front-end framework and the cloud platform:
-Front-end Framework: React was chosen as the front-end framework for VOOHC due to its popularity, large community support, and rich ecosystem of libraries and tools. An alternative choice could have been Angular. Angular is a comprehensive JavaScript framework that provides a complete solution for building complex web applications. However, Angular has a steeper learning curve compared to React, and its setup and development processes can be more involved. React, on the other hand, offers a more lightweight and flexible approach, making it easier to learn and faster to develop with, especially for smaller-scale projects like VOOHC.
-Cloud Platform: Both AWS and Microsoft Azure are widely used cloud platforms with similar capabilities. The decision between the two depends on factors such as familiarity, specific requirements, pricing, and available integrations. If the team already has experience with one platform or if the project requires specific services offered by a particular platform, that would be a determining factor. For example, if the team has prior experience with AWS and there are specific AWS services required for VOOHC (such as S3 for storage or EC2 for hosting), then AWS would be the preferred choice. However, if there are specific requirements that align better with Azure's offerings or if the team has more experience with Azure, then Azure would be a suitable alternative.
-Back-end Framework: Node.js with Express.js was chosen as the back-end framework for VOOHC due to its efficient handling of asynchronous operations, scalability, and large ecosystem of libraries and modules. An alternative choice could have been Django, a high-level Python web framework. Django offers a robust set of features, including an ORM (Object-Relational Mapping) for database operations and an admin interface for managing data. However, compared to Node.js and Express.js, Django might have a steeper learning curve for developers who are more familiar with JavaScript. Additionally, since VOOHC involves real-time interactions and scalability, the event-driven and non-blocking nature of Node.js makes it a better fit for handling concurrent requests and ensuring smooth performance. Thus, Node.js with Express.js was chosen as the preferred back-end technology for VOOHC.
-We have decided to use Node.js with Express.js as our back-end technology, driven by factors such as the need for a scalable and efficient solution, the development team's familiarity and expertise with JavaScript, and the ability to leverage the extensive Node.js ecosystem for additional libraries and tools. 
-This combination will allow for seamless integration with the front-end React framework, enabling a unified development experience and efficient communication between the client and server components of VOOHC.
-The decision to use a particular technology is based on several factors, including the project requirements, team expertise, scalability needs, available resources, and community support.
-
-Challenge statement
 Problem Statement: The Portfolio Project aims to solve the challenge of visualizing Out of Home (OOH) artworks in real-world settings and obtaining instant feedback before printing. Traditionally, clients face difficulties in envisioning how their OOH advertisements will appear in various locations and understanding the potential impact on their target market. This project intends to provide a digital platform where clients can upload their approved OOH artworks, preview them in different settings, test them with their target audience, and receive valuable feedback, enabling informed decisions and optimizing the effectiveness of their OOH campaigns.
 Limitations: While the Portfolio Project addresses the challenges of visualizing and testing OOH artworks, it does not handle the physical printing or implementation of the campaigns. The project's focus is on the digital visualization and feedback aspects, providing a virtual representation of the artworks in real-world scenarios. The actual printing and physical implementation of the OOH advertisements would require separate processes and logistics outside the scope of this project.
 Target Audience and Users: The Portfolio Project aims to help clients involved in OOH advertising campaigns, such as advertisers, marketing agencies, and businesses seeking to promote their products or services through billboards, bus shelters, digital signage, and other OOH media. The users of the project would primarily include the clients themselves, who will upload and visualize their artworks, as well as conduct market testing to gather feedback. Additionally, the project might also cater to the target audience or market segment that is simulated during the testing phase, allowing them to provide feedback and insights on the OOH artworks.
 Locale Dependency: The relevance of the Portfolio Project is not dependent on a specific locale. Out of Home (OOH) advertising is a global practice, and clients from various regions can benefit from the ability to visualize their artworks in different real-world settings. While specific locations may be selected within the app for visualizing the OOH artworks, the underlying concept and functionality of the project can be applied universally. The project can be adapted and customized to accommodate different regions, locations, and cultural contexts, making it relevant to a broad audience irrespective of locale.
 In summary, the Portfolio Project addresses the challenge of visualizing and testing OOH artworks, empowering clients to make informed decisions and optimize the effectiveness of their campaigns. However, it does not handle the physical printing or implementation of the advertisements. The project will benefit clients involved in OOH advertising, and its relevance is not dependent on a specific locale as the concept can be applied globally.
 
-Risks
+
+## Risks
 Technical Risks: 
 a. Performance Issues: There is a risk of the application's performance being negatively impacted when handling a large number of uploaded artworks, visualizations, and user interactions. This could lead to slow loading times or unresponsiveness, affecting the user experience.
 Safeguards and Alternatives: Implementing performance optimization techniques such as code and database optimization, caching mechanisms, and efficient image processing algorithms. Conducting load testing and performance profiling to identify and address bottlenecks. Considering server scalability options like load balancing and resource allocation
@@ -202,47 +113,12 @@ c. Market Feedback Reliability: While the project aims to provide simulated mark
 Strategies: Clearly communicating to users that simulated market feedback is an estimation and not a guarantee of real-world success. Encouraging users to interpret feedback as a valuable input rather than a definitive outcome. Continuously refining the feedback algorithms and simulation models based on real-world data and user feedback.
 By proactively addressing technical risks through performance optimization, compatibility testing, and security measures and implementing strategies to prevent non-technical risks related to data security, copyright, and market feedback reliability, the Portfolio Project aims to minimize potential negative impacts and ensure a secure and reliable user experience. Regular monitoring, updates, and user feedback collection will be instrumental in identifying and addressing any emerging risks throughout the project's lifecycle.
 
+## Authors
 
-Infrastructure
-Branching and Merging: The team will adopt a version control workflow known as "GitHub flow" for branching and merging in the project repository. The GitHub flow typically involves the following steps:
-Each feature or task is developed in a separate branch created from the main branch (e.g., "master" or "main").
-Team members work on their respective branches, regularly committing changes and pushing them to the remote repository.
-When a feature is complete and tested, a pull request is initiated to merge the feature branch into the main branch.
-The pull request undergoes code review by team members, addressing any feedback or issues identified.
-Once approved, the feature branch is merged into the main branch, and the changes become part of the project's codebase.
-Continuous integration practices can be implemented to automate build and test processes upon merging.
-Deployment Strategy: The deployment strategy for the Portfolio Project will depend on the specific requirements and infrastructure of the project. However, a common approach would be to utilize a cloud platform, such as AWS or Azure, for hosting the application. The deployment process may involve the following steps:
-Setting up the necessary cloud infrastructure, including servers, storage, and networking components.
-Configuring the deployment environment, ensuring proper security measures and scalability options.
-Automating the deployment process using deployment tools like AWS Elastic Beanstalk, Docker, or CI/CD pipelines.
-Implementing continuous deployment or scheduled deployments to ensure efficient updates and minimize downtime.
-Monitoring the deployment process and application health to identify and resolve any issues promptly.
-Data Population: The app's data can be populated through various methods, depending on the specific requirements:
-Manual Entry: Users or administrators can manually enter data through a user interface or administrative panel.
-CSV/Excel Import: Bulk data can be imported from CSV or Excel files using data import functionality.
-API Integration: Integration with external APIs can allow automatic data retrieval and population.
-Database Seeders: For development or testing purposes, predefined data can be seeded into the database using scripts or migrations.
-Testing Tools and Processes: The team will employ a combination of manual and automated testing approaches along with appropriate testing tools, including:
-Unit Testing: Writing unit tests using testing frameworks like Jest to ensure the correctness of individual components and functions.
-Integration Testing: Conducting integration tests to verify the interaction between different modules and services.
-End-to-End Testing: Using tools like Cypress or Selenium to simulate user interactions and validate the application flow
-Continuous Integration and Deployment: Integrating testing into the CI/CD pipeline to automatically run tests upon code changes and deployments
-Test Data Generation: Employing tools or scripts to generate test data that covers various scenarios and edge cases.
-Code Review and Peer Testing: Conducting code reviews and peer testing to catch issues, improve code quality, and ensure compliance with coding standards.
-By following a structured branching and merging process, implementing an appropriate deployment strategy, adopting suitable methods for data population, and utilizing a combination of manual and automated testing tools and processes, the team can ensure a robust infrastructure for the portfolio project and maintain code quality, reliability, and efficient development practices.
+CLEVERS RUNGENE - Project Manager
+LAWRENCE SAGINI
 
-Existing Solutions
-Out-of-home (OOH) communications group Posterscope has a tool to achieve the same result called Prism Creative. It is, however, limited to its own in-house projects.
+
+## Conclusion
 
 VOOHC will be available to everyone in the OOH industry. Additionally, we will be adding functionality whereby the client can engage with their target market and get instant feedback regarding the creatives they are developing before they go live. This reduces the error rate.
-
-AdQuick: AdQuick is a platform that allows advertisers to plan, buy, and measure their out-of-home (OOH) advertising campaigns. It provides tools for searching and selecting available OOH inventory, estimating costs, and managing campaign logistics. Similar to the Portfolio Project, AdQuick aims to streamline the OOH advertising process. However, AdQuick focuses more on the planning and buying aspects of OOH campaigns, while the Portfolio Project primarily focuses on visualizing artworks and gathering feedback.
-Broadsign: Broadsign is a digital signage software platform that enables businesses to manage and display content across various digital screens, including billboards, transit displays, and retail signage. It offers features like content scheduling, real-time monitoring, and audience analytics. While Broadsign caters to the digital signage aspect of OOH advertising, the Portfolio Project is specifically designed for visualizing static OOH artworks in real-world settings and obtaining feedback before printing.
-Adomni: Adomni is an online marketplace that connects advertisers with digital out-of-home (DOOH) advertising opportunities. It provides a platform for browsing available DOOH screens, creating campaigns, and managing ad content. Adomni focuses on digital OOH advertising and offers features like geotargeting, campaign performance tracking, and programmatic buying. In comparison, the Portfolio Project is more focused on traditional OOH artworks and their visualization rather than the digital aspect of OOH advertising.
-Canva: Canva is a graphic design platform that offers a wide range of templates, tools, and assets for creating various types of designs, including OOH artworks. It provides a user-friendly interface and drag-and-drop functionality, making it accessible to users with minimal design experience. While Canva allows users to create OOH artwork designs, the Portfolio Project goes a step further by providing a visualization platform specifically tailored to previewing and testing OOH artworks in real-world scenarios, helping users assess their effectiveness before printing.
-Focus Groups and Surveys: Traditional market research methods, such as focus groups and surveys, are often used to gather feedback on advertising materials, including OOH artworks. These methods involve recruiting participants, conducting sessions, and collecting qualitative and quantitative data. While focus groups and surveys are valuable for gathering insights, they lack the visual and interactive aspect that the Portfolio Project offers. The Portfolio Project allows users to simulate the placement of OOH artworks and receive instant feedback from a target audience.
-Out-of-home (OOH) communications group Posterscope has their tool to achieve the same result called Prism Creative. It is however limited to its own in-house projects.
-VOOHC will be available to everyone in the OOH industry. Additionally, we will be adding functionality whereby the client can engage with their target market and get instant feedback regarding the creatives they are developing before they go live. This reduces the error rate.
-In summary, the existing solutions mentioned above share similarities with the Portfolio Project in the context of OOH advertising but differ in their specific focus and functionality. The Portfolio Project distinguishes itself by providing a dedicated platform for visualizing static OOH artworks in real-world settings, obtaining instant feedback, and optimizing the effectiveness of OOH campaigns before printing. It combines the visualization and feedback aspects, offering a unique value proposition for clients involved in traditional OOH advertising.
-
-
